@@ -2,7 +2,10 @@ import { JSX } from 'react'
 
 function Home(): JSX.Element {
     return (
-        <div>Home</div>
+        <div>
+            <h1>MERHABALAR 🤙</h1>
+            <h2>Op.Dr Ebubekir Korucuk</h2>
+        </div>
     )
 }
 
