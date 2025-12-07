@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+import "../styles/base.scss";
+import "../globals.css";
+import clsx from "clsx";
+import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
     title: "Ebubekir Korucuk",
@@ -16,7 +20,8 @@ export default function RootLayout({
                 <meta charSet="UTF-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             </head>
-            <body>
+            <body className={clsx("k-body py-4 xl:px-[20vw] lg:px-[10vw] md:px-[5vw] px-[5vw] ")}>
+                <Navbar />
                 {children}
             </body>
         </html>

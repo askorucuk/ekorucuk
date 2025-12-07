@@ -1,0 +1,13 @@
+.k-body {
+    background-color: #000;
+}
+
+.k-logo-wrapper::selection {
+    background-color: #ee2b4b;
+}
+
+.k-body {
+    .select::selection {
+        background-color: #4a5568;
+    }
+}
