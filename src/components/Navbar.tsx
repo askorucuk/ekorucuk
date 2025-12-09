@@ -17,10 +17,10 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className={`w-full h-auto flex items-center justify-between border-b border-gray-secondary pt-4 pb-2 z-[100]`}>
-      <div className="k-logo-wrapper w-auto flex items-center justify-center gap-4">
+      <Link href="/" className="k-logo-wrapper w-auto flex items-center justify-center gap-4">
         <IconLogo className="w-10 h-10 shrink-0" />
         <h1 className="text-xl font-semibold text-neutral-50">Op.Dr. Ebubekir Korucuk</h1>
-      </div>
+      </Link>
       {menuActive ? (
         <FloatingNavbarItems />
       ) : (
