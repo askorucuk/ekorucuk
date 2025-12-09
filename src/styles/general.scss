@@ -11,3 +11,29 @@
         background-color: #4a5568;
     }
 }
+
+.k-baseImage-wrapper {
+    animation: outline-change 2s infinite ease;
+}
+
+.k-about-image-wrapper {
+    background: url('../assets/img/journey.png');
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+@keyframes outline-change {
+    0% {
+        outline-color: #4a556835;
+    }
+
+    50% {
+        outline-color: #4a556867;
+    }
+
+    100% {
+        outline-color: #4a556835;
+    }
+}
