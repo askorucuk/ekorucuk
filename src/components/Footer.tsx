@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
       <div className="w-full h-auto flex flex-row items-center justify-center text-xs text-gray-500 gap-2">
         <Copyright size={10} />
         <p>{new Date().getFullYear()}</p>
-        <p>Op.Dr. Ebubekir Korucuk. All rights reserved.</p>
+        <p>Op.Dr. Ebubekir Korucuk. Tüm hakları saklıdır.</p>
       </div>
       <div className="w-full h-auto flex flex-row items-center justify-center text-xs md:text-sm md:gap-4 gap-2 duration-300">
         <Link
