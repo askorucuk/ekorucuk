@@ -9,32 +9,32 @@ interface ResizeState {
 }
 
 const useResizeListener = (): ResizeState => {
-    const [resizeState, setResizeState] = useState<ResizeState>({
-        width: 0,
-        device: 'desktop',
-    });
+  const [resizeState, setResizeState] = useState<ResizeState>({
+    width: 0,
+    device: 'desktop',
+  });
 
-    useLayoutEffect(() => {
-        const handleResize = () => {
-            const width = window.innerWidth;
-            let device: DeviceType = 'desktop';
+  useLayoutEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      let device: DeviceType = 'desktop';
 
-            if (width <= 480) {
-                device = 'mobile';
-            } else if (width <= 1024) {
-                device = 'tablet';
-            }
+      if (width <= 480) {
+        device = 'mobile';
+      } else if (width <= 1024) {
+        device = 'tablet';
+      }
 
-            setResizeState({ width, device });
-        };
+      setResizeState({ width, device });
+    };
 
-        handleResize();
+    handleResize();
 
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
-    return resizeState;
+  return resizeState;
 };
 
 export default useResizeListener;
