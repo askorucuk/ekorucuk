@@ -1,5 +1,5 @@
-import React, { JSX } from "react";
-import { GraduationCap, BookA, Hospital, Slice } from "lucide-react";
+import { JSX } from "react";
+import { GraduationCap, BookA, Hospital, Activity } from "lucide-react";
 
 type TimelineData = {
     id: number;
@@ -36,7 +36,7 @@ export const timelineData: TimelineData[] = [
     title: "Ege Üniversitesi Genel Cerrahi: Op.Dr. Ebubekir Korucuk",
     description: 'Şu andaki Pozisyon',
     year: "2025 - Halen",
-    icon: <Slice   size={20} />,
+    icon: <Activity   size={20} />,
   },
   
 ];

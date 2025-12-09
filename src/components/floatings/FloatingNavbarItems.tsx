@@ -100,7 +100,7 @@ const FloatingNavbarItems: React.FC = () => {
             ref={setFloating}
             style={floatingStyles}
             {...getFloatingProps()}
-            className='border border-gray-300 rounded-md min-w-[150px] w-auto h-auto flex flex-col items-center justify-center bg-neutral-50 hover:bg-black divide-y-2 divide-y divide-gray-300'
+            className='w-full border border-gray-300 rounded-md min-w-[150px] max-w-[400px] h-auto flex flex-col items-center justify-center bg-neutral-50 hover:bg-black divide-y-2 divide-y divide-base-primary'
           >
             {Object.entries(options).map(([key, value], idx) => (
               <Link
