@@ -4,8 +4,8 @@ import { useState, useLayoutEffect } from 'react';
 type DeviceType = 'mobile' | 'tablet' | 'desktop';
 
 interface ResizeState {
-    width: number;
-    device: DeviceType;
+  width: number;
+  device: DeviceType;
 }
 
 const useResizeListener = (): ResizeState => {

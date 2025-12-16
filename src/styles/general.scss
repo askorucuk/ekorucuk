@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
 .k-body {
     background-color: #000;
 }
@@ -23,6 +25,19 @@
     background-repeat: no-repeat;
 }
 
+button {
+    cursor: pointer;
+}
+
+.create-post-modal {
+    animation: fade 0.3s ease-in-out;
+}
+
+.create-post-modal-content {
+    animation: fade-in-bottom 0.5s ease-in-out;
+    font-family: 'Inter', sans-serif;
+}
+
 
 @keyframes outline-change {
     0% {
@@ -35,5 +50,27 @@
 
     100% {
         outline-color: #4a556835;
+    }
+}
+
+@keyframes fade-in-bottom {
+    0% {
+        opacity: 1;
+        transform: translateY(100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 }

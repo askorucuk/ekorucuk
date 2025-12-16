@@ -1,5 +1,4 @@
 "use client";
-
 import React, { JSX, useState } from 'react';
 import { MapPin, Mail, Phone } from 'lucide-react';
 
@@ -50,7 +49,7 @@ const Contact = (): JSX.Element => {
                     name="fullName"
                     value={formData.fullName}
                     onChange={handleChange}
-                    placeholder="Enter your full name"
+                    placeholder="Adınız ve Soyadınız"
                     className="bg-base-secondary border border-gray-primary rounded-lg p-3 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-[#ff3b5c] transition-colors w-full"
                     required
                   />
@@ -63,7 +62,7 @@ const Contact = (): JSX.Element => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="Enter your email address"
+                    placeholder="E-posta Adresiniz"
                     className="bg-base-secondary border border-gray-primary rounded-lg p-3 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-[#ff3b5c] transition-colors w-full"
                     required
                   />
@@ -77,7 +76,7 @@ const Contact = (): JSX.Element => {
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  placeholder="Enter the subject of your message"
+                  placeholder="Mesajınızın Konusu"
                   className="bg-base-secondary border border-gray-secondary rounded-lg p-3 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-[#ff3b5c] transition-colors w-full"
                 />
               </div>
@@ -89,7 +88,7 @@ const Contact = (): JSX.Element => {
                   value={formData.message}
                   onChange={handleChange}
                   rows={5}
-                  placeholder="Enter your message here..."
+                  placeholder="Mesajınızı buraya yazınız..."
                   className="bg-base-secondary border border-gray-primary rounded-lg p-3 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-[#ff3b5c] transition-colors w-full resize-none"
                   required
                 ></textarea>
@@ -128,17 +127,19 @@ const Contact = (): JSX.Element => {
                 </p>
               </div>
             </a>
-            <a href="tel:+905510203435" className="flex items-start gap-4">
-              <div className="bg-[#1a1a1a] p-3 rounded-lg text-[#ff3b5c]">
-                <Phone size={24} />
-              </div>
-              <div>
-                <h4 className="text-white font-medium text-lg" style={{ fontSize: 'clamp(1rem, 1vw, 1.5rem)' }}>Telefon</h4>
-                <p className="text-gray-400 text-sm mt-1 hover:text-[#ff3b5c] transition-colors cursor-pointer">
-                  +90 551 020 34 35
-                </p>
-              </div>  
-            </a>
+            {false && (
+              <a href="tel:+905510203435" className="flex items-start gap-4">
+                <div className="bg-[#1a1a1a] p-3 rounded-lg text-[#ff3b5c]">
+                  <Phone size={24} />
+                </div>
+                <div>
+                  <h4 className="text-white font-medium text-lg" style={{ fontSize: 'clamp(1rem, 1vw, 1.5rem)' }}>Telefon</h4>
+                  <p className="text-gray-400 text-sm mt-1 hover:text-[#ff3b5c] transition-colors cursor-pointer">
+                    +90 551 020 34 35
+                  </p>
+                </div>
+              </a>
+            )}
           </div>
         </div>
       </div>

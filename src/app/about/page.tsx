@@ -1,3 +1,4 @@
+"use client";
 import { JSX } from 'react'
 import ImageCollapse from './components/ImageCollapse'
 import Journey from './components/Journey'

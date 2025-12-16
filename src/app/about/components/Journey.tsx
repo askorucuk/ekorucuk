@@ -1,4 +1,3 @@
-'use client';
 import { JSX, useState } from 'react'
 import { FileText, Heart } from 'lucide-react';
 import { timelineData } from '@/constants/journey';

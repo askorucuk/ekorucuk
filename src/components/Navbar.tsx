@@ -1,9 +1,8 @@
 "use client";
-
 import Link from 'next/link'
 import React from 'react'
 import IconLogo from '../assets/logo.svg';
-import { nav } from './classes';
+import { nav } from '../constants/classes';
 import useResizeListener from '../hooks/useResizeListener';
 import FloatingNavbarItems from './floatings/FloatingNavbarItems';
 import { usePathname } from 'next/navigation';

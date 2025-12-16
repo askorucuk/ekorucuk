@@ -1,4 +1,4 @@
-"use client";
+"";
 
 import React, { useState } from 'react'
 import {
@@ -61,11 +61,11 @@ const FloatingNavbarItems: React.FC = () => {
   const options = {
     home: {
       path: "/",
-      label: "Home"
+      label: "Ana Sayfa"
     },
     about: {
       path: "/about",
-      label: "About"
+      label: "Hakkımda"
     },
     blog: {
       path: "/blog",
@@ -73,7 +73,7 @@ const FloatingNavbarItems: React.FC = () => {
     },
     contact: {
       path: "/contact",
-      label: "Contact"
+      label: "İletişim"
     }
   };
 
