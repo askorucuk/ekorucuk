@@ -13,7 +13,7 @@ import { db } from '@/api/config/firebase';
 import CreatableSelect from 'react-select/creatable';
 import { MultiValue, SingleValue } from 'react-select';
 import { calculateReadTime } from '@/utils/calculateReadTime';
-import { Check, X, Link as LinkIcon } from 'lucide-react';
+import { Check, X, Link as LinkIcon, Plus } from 'lucide-react';
 
 const TextAreaModal: React.FC<{
   isOpen: boolean,
@@ -157,7 +157,7 @@ const TextAreaModal: React.FC<{
   return (
     <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="relative z-50">
       <div className="fixed inset-0 flex w-screen items-center justify-center pt-10 px-4 bg-black/75 create-post-modal">
-        <DialogPanel className="relative w-[100vw] h-[100vh] space-y-2 rounded-t-2xl bg-black/90 py-12 px-10 sm:px-20 xl:px-60 create-post-modal-content flex sm:flex-row flex-col items-start justify-start gap-8">
+        <DialogPanel className="relative w-[100vw] h-[100vh] space-y-2 rounded-t-2xl bg-black/90 py-12 px-10 sm:px-20 xl:px-60 create-post-modal-content flex sm:flex-row flex-col items-start justify-start gap-8 overflow-y-auto">
           <div className="flex flex-col gap-4 w-full h-full sm:max-w-[50%]">
             <input
               name="title"
@@ -165,15 +165,15 @@ const TextAreaModal: React.FC<{
               value={title}
               onChange={handleTitleChange}
               placeholder="Başlık"
-              className="w-full bg-black py-2.5 px-4 text-xl text-neutral-50 placeholder:text-slate-500 focus:placeholder:text-neutral-50 outline-none border-b border-b-neutral-700 focus:border-b-slate-300 focus:outline-none transition-colors duration-300"
+              className="w-full bg-black py-2.5 px-4 text-md text-neutral-50 placeholder:text-slate-500 focus:placeholder:text-neutral-50 outline-none border-b border-b-neutral-700 focus:border-b-slate-300 focus:outline-none transition-colors duration-300"
             />
             <textarea
               name="excerpt"
-              rows={4}
+              rows={9}
               value={content}
               onChange={handleContentChange}
               placeholder="Hadi başlayalım 🤘"
-              className="w-full bg-black resize-none rounded-lg bg-black py-2.5 px-4 text-xl text-neutral-50 placeholder:text-slate-500 focus:placeholder:text-neutral-50 border-none focus:ring-0 focus:outline-none transition-colors placeholder:text-neutral-50 duration-300"
+              className="w-full bg-black resize-none rounded-lg bg-black py-2.5 px-4 text-md text-neutral-50 placeholder:text-slate-500 focus:placeholder:text-neutral-50 border-none focus:ring-0 focus:outline-none transition-colors placeholder:text-neutral-50 duration-300"
             />
           </div>
           <div className="flex flex-col gap-4 w-full h-full sm:max-w-[50%] sm:border-l border-l-neutral-700 sm:pl-10 mb-16 sm:mb-0">
@@ -327,30 +327,30 @@ const TextAreaModal: React.FC<{
                   type="text"
                   value={currentLink}
                   onChange={handleLinkChange}
-                  placeholder="Bağlantı ekle"
-                  className="w-full bg-black py-2.5 px-4 text-sm text-neutral-50 placeholder:text-slate-500 focus:placeholder:text-neutral-50 outline-none border-b border-b-neutral-700 focus:border-b-slate-300 focus:outline-none transition-colors duration-300"
+                  placeholder="Yeni Bağlantı"
+                  className="w-full bg-black py-1 px-1 text-sm text-neutral-50 placeholder:text-slate-500 focus:placeholder:text-neutral-50 outline-none border-b border-b-neutral-700 focus:border-b-slate-300 focus:outline-none transition-colors duration-300"
                 />
                 <button
-                  className="shrink-0 bg-transparent hover:bg-transparent border-2 border-slate-500 hover:border-neutral-50 text-slate-500 hover:text-neutral-50 p-2 rounded-sm text-sm font-medium transition-colors"
+                  className="shrink-0 bg-transparent hover:bg-transparent border-2 border-slate-500 hover:border-neutral-50 text-slate-500 hover:text-neutral-50 p-1 rounded-sm text-sm font-medium transition-colors"
                   onClick={handleAddLink}
                 >
-                  Bağlantı ekle
+                  <Plus size={16} />
                 </button>
               </div>
             </div>
           </div>
-          <div className='absolute sm:bottom-10 bottom-[95%] right-8 flex flex-row items-center justify-end gap-4'>
+          <div className='fixed bottom-[20px] right-2 flex flex-col items-center justify-end gap-4'>
             <Button
-              className="bg-transparent duration-300 hover:bg-transparent group hover:border-green-500 border-2 border-slate-500 text-slate-500 hover:text-neutral-50 p-2 rounded-full text-sm font-medium transition-colors"
+              className="bg-transparent duration-300 hover:bg-transparent border-green-500 border-2 text-slate-500 hover:text-neutral-50 p-2 rounded-full text-sm font-medium transition-colors opacity-50 hover:opacity-100 duration-300"
               onClick={handleSubmit}
             >
-              <Check size={20} className="sm:w-full sm:h-full w-4 h-4 group-hover:text-green-500 duration-300" />
+              <Check size={20} className="sm:w-full sm:h-full w-4 h-4 text-green-500 duration-300" />
             </Button>
             <Button
-              className="bg-transparent duration-300 hover:bg-transparent group hover:border-red-500 border-2 border-slate-500 text-slate-500 hover:text-neutral-50 p-2 rounded-full text-sm font-medium transition-colors"
+              className="bg-transparent duration-300 hover:bg-transparent border-red-500 border-2 text-slate-500 hover:text-neutral-50 p-2 rounded-full text-sm font-medium transition-colors opacity-50 hover:opacity-100 duration-300"
               onClick={handleCancel}
             >
-              <X size={20} className="sm:w-full sm:h-full w-4 h-4 group-hover:text-red-500 duration-300" />
+              <X size={20} className="sm:w-full sm:h-full w-4 h-4 text-red-500 duration-300" />
             </Button>
           </div>
         </DialogPanel>

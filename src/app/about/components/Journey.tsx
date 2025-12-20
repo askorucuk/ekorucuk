@@ -3,7 +3,7 @@ import { FileText, Heart } from 'lucide-react';
 import { timelineData } from '@/constants/journey';
 import clsx from 'clsx';
 
-const TABS = [{ id: 'journey', label: 'Professional Journey' }, { id: 'publications', label: 'Publications' }, { id: 'passions', label: 'Personal Passions' }];
+const TABS = [{ id: 'journey', label: 'Profesyonel Yolculuk' }, { id: 'publications', label: 'Yayınlar' }, { id: 'passions', label: 'Kişisel Tutkular' }];
 
 const Journey = (): JSX.Element => {
   const [activeTab, setActiveTab] = useState(TABS[0].id);
@@ -31,7 +31,7 @@ const Journey = (): JSX.Element => {
         <div className="animate-in fade-in zoom-in duration-300">
           {activeTab === TABS[0].id && (
             <div>
-              <h3 className="text-2xl font-semibold text-white mb-8" style={{ fontSize: 'clamp(1rem, 2.5vw, 1.2rem)' }}>Professional Journey</h3>
+              <h3 className="text-2xl font-semibold text-white mb-8" style={{ fontSize: 'clamp(1rem, 2.5vw, 1.2rem)' }}>Profesyonel Yolculuk</h3>
               <div className="relative pl-2">
                 {timelineData.map((item, index) => (
                   <div key={item.id} className="flex gap-6 mb-8 relative group">
