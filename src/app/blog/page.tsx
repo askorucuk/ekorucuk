@@ -96,9 +96,9 @@ const Blog = (): JSX.Element => {
                 <button
                   type='button'
                   onClick={() => handleOpenWriteModal('write')}
-                  className="flex items-center gap-2 bg-[#ff3b5c] hover:bg-[#ff2448] text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                  className="flex items-center text-xs sm:text-base gap-2 bg-[#ff3b5c] hover:bg-[#ff2448] text-white px-4 py-2 rounded-lg font-medium transition-colors"
                 >
-                  <PenSquare size={20} />
+                  <PenSquare size={16} />
                   <span>Oluştur</span>
                 </button>
               )}
@@ -106,15 +106,15 @@ const Blog = (): JSX.Element => {
                 <button
                   type='button'
                   onClick={() => handleOpenWriteModal('link')}
-                  className="flex items-center gap-2 bg-[#ff3b5c] hover:bg-[#ff2448] text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                  className="flex items-center text-xs sm:text-base gap-2 bg-[#ff3b5c] hover:bg-[#ff2448] text-white px-4 py-2 rounded-lg font-medium transition-colors"
                 >
-                  <LinkIcon size={20} />
+                  <LinkIcon size={16} />
                   <span>Bağlantı Oluştur</span>
                 </button>
               )}
             </div>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
             {loading ? (
               <div className="flex justify-center items-center">
                 <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>
@@ -125,12 +125,12 @@ const Blog = (): JSX.Element => {
               ))
             )}
           </div>
-          <div className="flex justify-center">
+          <div className="flex justify-center mb-12">
             {showCount < posts.length && (
               <button
                 type='button'
                 onClick={() => setShowCount(showCount + 3)}
-                className="border border-gray-700 hover:border-gray-500 text-gray-300 px-8 py-3 rounded-lg transition-colors">
+                className="border border-gray-700 hover:border-gray-500 text-gray-300 px-8 py-3 mt-16 rounded-lg transition-colors">
                 Daha Fazla
               </button>
             )}

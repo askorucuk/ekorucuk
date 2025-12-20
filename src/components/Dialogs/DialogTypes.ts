@@ -1,0 +1,3 @@
+export const DialogTypes = {
+  DELETE_CONFIRMATION: 'DELETE_CONFIRMATION'
+}

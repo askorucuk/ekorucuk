@@ -4,6 +4,7 @@ import "../globals.css";
 import clsx from "clsx";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Dialog from "@/components/Dialogs/Dialog";
 
 export const metadata: Metadata = {
   title: "Ebubekir Korucuk",
@@ -25,6 +26,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <Dialog />
       </body>
     </html>
   );

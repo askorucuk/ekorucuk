@@ -5,12 +5,15 @@ import { Post } from '@/types/posts'
 import { getUrlParameter } from '@/utils/base'
 import { deleteDoc, doc } from 'firebase/firestore'
 import { db } from '@/api/config/firebase'
+import { DialogTypes } from '@/components/Dialogs/DialogTypes'
+import { useUIStore } from '@/store/client/ui'
 
 const ArticleBox: React.FC<{
   post: Post,
   onOpenDetailsModal: (post: Post) => void,
   fetchPosts: () => void
 }> = ({ post, onOpenDetailsModal, fetchPosts }) => {
+  const { setDialogData } = useUIStore();
   const handleOpenDetailsModal = useCallback(() => {
     onOpenDetailsModal(post);
   }, [onOpenDetailsModal, post]);
@@ -27,6 +30,24 @@ const ArticleBox: React.FC<{
       console.error("Post silinirken hata oluştu", error);
     }
   }, [post.id, fetchPosts]);
+
+  const handleDeletePostConfirmation = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDialogData({
+      id: DialogTypes.DELETE_CONFIRMATION,
+      data: {
+        title: "Yazıyı Sil",
+        description: "Bu yazıyı silmek istediğinizden emin misiniz?",
+        onClose: () => setDialogData(null),
+        onSubmit: (e) => handleDeletePost(e),
+        closeButtonText: "Cancel",
+        submitButtonText: "Delete",
+        status: 'negative',
+        config: null
+      }
+    });
+  }, [setDialogData, handleDeletePost]);
 
   const isAdmin = getUrlParameter('admin_blog') === '1';
 
@@ -82,7 +103,7 @@ const ArticleBox: React.FC<{
         </div>
         {isAdmin && (
           <button
-            onClick={handleDeletePost}
+            onClick={handleDeletePostConfirmation}
             type="button"
             className="absolute bottom-5 right-4 bg-[#ff3b5c] text-white px-3 py-1.5 rounded-full hover:bg-[#ff2448] transition-colors"
           >
