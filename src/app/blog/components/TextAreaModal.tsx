@@ -225,11 +225,17 @@ const TextAreaModal: React.FC<{
                   fontSize: '12px',
                   padding: '6px 12px',
                 }),
+                noOptionsMessage: (baseStyles) => ({
+                  ...baseStyles,
+                  color: 'white',
+                  fontSize: '12px',
+                }),
               }}
               options={availableCategories}
               value={category ? { value: category, label: category } : null}
               onChange={(selectedOption) => handleCategoryChange(selectedOption)}
-              placeholder="Select or create category"
+              placeholder="Kategori seçin veya oluşturun"
+              noOptionsMessage={() => "Sonuç bulunamadı"}
             />
             <div className='w-full h-[1px] bg-gray-800' />
             <p className="text-sm text-gray-500">Etiketler</p>
@@ -300,11 +306,17 @@ const TextAreaModal: React.FC<{
                     color: 'white',
                   },
                 }),
+                noOptionsMessage: (baseStyles) => ({
+                  ...baseStyles,
+                  color: 'white',
+                  fontSize: '12px',
+                }),
               }}
               options={availableTags}
               value={tags ? tags.split(',').map(tag => ({ value: tag, label: tag })) : []}
               onChange={handleTagsChange}
-              placeholder="Select or create tags"
+              placeholder="Etiket seçin veya oluşturun"
+              noOptionsMessage={() => "Sonuç bulunamadı"}
             />
             <div className='w-full h-[1px] bg-gray-800' />
             <div className="flex flex-col gap-4 w-full">
