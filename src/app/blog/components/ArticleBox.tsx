@@ -41,7 +41,7 @@ const ArticleBox: React.FC<{
           <BookOpenText size={120} className="text-gray-500" />
         </div>
         }
-        <span className="max-w-[200px] absolute top-4 left-4 bg-[#ff3b5c] text-white text-xs font-bold whitespace-nowrap text-ellipsis text-left px-3 py-1.5 rounded-full uppercase tracking-wider shadow-lg">
+        <span className="max-w-[200px] absolute top-4 left-4 bg-[#ff3b5c] text-white text-xs font-bold whitespace-nowrap text-ellipsis overflow-hidden text-left px-3 py-1.5 rounded-full uppercase tracking-wider shadow-lg">
           {post.category}
         </span>
       </div>

@@ -13,3 +13,13 @@ export type Post = {
     image: string;
     tags: string[];
 }
+
+export type Link = {
+    id?: string;
+    linkId: string;
+    category: string;
+    title: string;
+    url: string;
+    createdAt: FieldValue;
+    updatedAt: FieldValue;
+}
