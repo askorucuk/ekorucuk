@@ -85,7 +85,7 @@ const Blog = (): JSX.Element => {
   return (
     <>
       <div className="min-h-screen bg-black text-white py-16 px-4 md:px-12">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto border-b border-gray-700">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold mb-3 text-white">İçeriklerim</h2>
@@ -136,7 +136,8 @@ const Blog = (): JSX.Element => {
             )}
           </div>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 mt-16 mb-16">
+        <p className="text-white text-xl mt-8 mb-8">Bağlantılarım</p>
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
           {loading ? (
             <div className="flex justify-center items-center">
               <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>
