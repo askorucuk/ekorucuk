@@ -14,10 +14,10 @@ const Passions = (): JSX.Element => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {passions.map((item, index) => (
             <div key={index} className="group cursor-pointer">
-              <div className="w-full aspect-square bg-[#111111] border border-gray-800 rounded-2xl mb-5 overflow-hidden relative transition-all duration-300 group-hover:border-[#ff2e4d]/50 group-hover:shadow-[0_0_20px_rgba(255,46,77,0.1)]">
+              <div className="w-full aspect-square bg-[#111111] border border-gray-800 rounded-2xl mb-5 overflow-hidden relative transition-all duration-300 group-hover:border-[#3C88CB]/50 group-hover:shadow-[0_0_20px_rgba(255,46,77,0.1)]">
                 {item.img}
               </div>
-              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#ff2e4d] transition-colors">
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#3C88CB] transition-colors">
                 {item.title}
               </h3>
               <p className="text-gray-500 text-sm leading-relaxed">

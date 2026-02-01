@@ -1,7 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:wght@400;500;600;700&display=swap');
 
 .k-body {
     background-color: #000;
+}
+
+.k-logo-wrapper,
+.k-logo-wrapper::selection {
+    font-family: 'DM Serif Text', serif;
 }
 
 .k-logo-wrapper::selection {

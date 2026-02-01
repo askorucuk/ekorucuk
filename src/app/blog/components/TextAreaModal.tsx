@@ -425,10 +425,10 @@ const TextAreaModal: React.FC<{
                 <Check size={20} className="sm:w-full sm:h-full w-4 h-4 text-green-500 duration-300" />
               </Button>
               <Button
-                className="bg-transparent duration-300 hover:bg-transparent border-red-500 border-2 text-slate-500 hover:text-neutral-50 p-2 rounded-full text-sm font-medium transition-colors opacity-50 hover:opacity-100 duration-300"
+                className="bg-transparent duration-300 hover:bg-transparent border-blue-500 border-2 text-slate-500 hover:text-neutral-50 p-2 rounded-full text-sm font-medium transition-colors opacity-50 hover:opacity-100 duration-300"
                 onClick={handleCancel}
               >
-                <X size={20} className="sm:w-full sm:h-full w-4 h-4 text-red-500 duration-300" />
+                <X size={20} className="sm:w-full sm:h-full w-4 h-4 text-blue-500 duration-300" />
               </Button>
             </div>
           </DialogPanel>) :
@@ -459,10 +459,10 @@ const TextAreaModal: React.FC<{
                 <Check size={20} className="sm:w-full sm:h-full w-4 h-4 text-green-500 duration-300" />
               </Button>
               <Button
-                className="bg-transparent duration-300 hover:bg-transparent border-red-500 border-2 text-slate-500 hover:text-neutral-50 p-2 rounded-full text-sm font-medium transition-colors opacity-50 hover:opacity-100 duration-300"
+                className="bg-transparent duration-300 hover:bg-transparent border-blue-500 border-2 text-slate-500 hover:text-neutral-50 p-2 rounded-full text-sm font-medium transition-colors opacity-50 hover:opacity-100 duration-300"
                 onClick={handleCancel}
               >
-                <X size={20} className="sm:w-full sm:h-full w-4 h-4 text-red-500 duration-300" />
+                <X size={20} className="sm:w-full sm:h-full w-4 h-4 text-blue-500 duration-300" />
               </Button>
             </div>
           </DialogPanel>

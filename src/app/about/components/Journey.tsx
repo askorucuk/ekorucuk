@@ -23,7 +23,7 @@ const Journey = (): JSX.Element => {
             >
               {tab.label}
               {activeTab === tab.id && (
-                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#ff2e4d]" />
+                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#3C88CB]" />
               )}
             </button>
           ))}
@@ -36,15 +36,15 @@ const Journey = (): JSX.Element => {
                 {timelineData.map((item, index) => (
                   <div key={item.id} className="flex gap-6 mb-8 relative group">
                     <div className="flex flex-col items-center">
-                      <div className="w-10 h-10 rounded-full bg-gray-secondary flex items-center justify-center text-[#ff2e4d] z-10">
+                      <div className="w-10 h-10 rounded-full bg-gray-secondary flex items-center justify-center text-[#3C88CB] z-10">
                         {item.icon}
                       </div>
                       {index !== timelineData.length - 1 && (
-                        <div className="w-[1px] h-full bg-gradient-to-b from-[#ff2e4d]/50 to-transparent my-2 absolute top-10 left-5 -translate-x-1/2" />
+                        <div className="w-[1px] h-full bg-gradient-to-b from-[#3C88CB]/50 to-transparent my-2 absolute top-10 left-5 -translate-x-1/2" />
                       )}
                     </div>
                     <div className="pt-1">
-                      <h4 className="text-lg text-gray-100 font-medium group-hover:text-[#ff2e4d] transition-colors" style={{ fontSize: 'clamp(.75rem, 2.5vw, 1rem)' }}>
+                      <h4 className="text-lg text-gray-100 font-medium group-hover:text-[#3C88CB] transition-colors" style={{ fontSize: 'clamp(.75rem, 2.5vw, 1rem)' }}>
                         {item.title}
                       </h4>
                       <p className="text-sm text-gray-500 font-mono block mt-1" style={{ fontSize: 'clamp(.5rem, 2.5vw, .75rem)' }}>

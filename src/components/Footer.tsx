@@ -1,5 +1,5 @@
 import { Copyright } from 'lucide-react'
-import IconLogo from '../assets/logo.svg'
+import IconLogo from '../assets/logo.png'
 import React from 'react'
 import Link from 'next/link'
 
@@ -7,8 +7,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="w-full h-auto flex flex-col items-center justify-center border-t border-gray-secondary gap-4 mt-auto pb-4">
       <div className="k-logo-wrapper w-auto flex items-center justify-center gap-2 mt-4">
-        <IconLogo className="w-5 h-5 shrink-0" />
-        <h1 className="text-md font-semibold text-neutral-50">Op.Dr. Ebubekir Korucuk</h1>
+        <img src={IconLogo.src} alt="Logo" className="w-5 h-5 shrink-0" />
       </div>
       <div className="w-full h-auto flex flex-row items-center justify-center text-xs text-gray-500 gap-2">
         <Copyright size={10} />

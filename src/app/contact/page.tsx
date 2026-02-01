@@ -95,7 +95,7 @@ const Contact = (): JSX.Element => {
               </div>
               <button
                 type="submit"
-                className="bg-[#ff3b5c] hover:bg-[#ff2448] text-white font-medium py-3 px-8 rounded-lg transition-colors duration-300 w-full md:w-auto disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
+                className="bg-[#3C88CB] hover:bg-[#ff2448] text-white font-medium py-3 px-8 rounded-lg transition-colors duration-300 w-full md:w-auto disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
                 disabled={submitButtonDisabled}
               >
                 Mesajı Gönder
@@ -105,7 +105,7 @@ const Contact = (): JSX.Element => {
           <div className="lg:col-span-1 flex flex-col gap-8 pt-4">
             <h3 className="text-2xl font-semibold text-white mb-2" style={{ fontSize: 'clamp(1.5rem, 2vw, 2rem)' }}>Diğer Yollarla Bağlanın</h3>
             <div className="flex items-start gap-4">
-              <div className="bg-[#1a1a1a] p-3 rounded-lg text-[#ff3b5c]">
+              <div className="bg-[#1a1a1a] p-3 rounded-lg text-[#3C88CB]">
                 <MapPin size={24} />
               </div>
               <div>
@@ -117,24 +117,24 @@ const Contact = (): JSX.Element => {
               </div>
             </div>
             <a href="mailto:korucuke@gmail.com" className="flex items-start gap-4">
-              <div className="bg-[#1a1a1a] p-3 rounded-lg text-[#ff3b5c]">
+              <div className="bg-[#1a1a1a] p-3 rounded-lg text-[#3C88CB]">
                 <Mail size={24} />
               </div>
               <div>
                 <h4 className="text-white font-medium text-lg" style={{ fontSize: 'clamp(1rem, 1vw, 1.5rem)' }}>E-Posta</h4>
-                <p className="text-gray-400 text-sm mt-1 hover:text-[#ff3b5c] transition-colors cursor-pointer">
+                <p className="text-gray-400 text-sm mt-1 hover:text-[#3C88CB] transition-colors cursor-pointer">
                   korucuke@gmail.com
                 </p>
               </div>
             </a>
             {false && (
               <a href="tel:+905510203435" className="flex items-start gap-4">
-                <div className="bg-[#1a1a1a] p-3 rounded-lg text-[#ff3b5c]">
+                <div className="bg-[#1a1a1a] p-3 rounded-lg text-[#3C88CB]">
                   <Phone size={24} />
                 </div>
                 <div>
                   <h4 className="text-white font-medium text-lg" style={{ fontSize: 'clamp(1rem, 1vw, 1.5rem)' }}>Telefon</h4>
-                  <p className="text-gray-400 text-sm mt-1 hover:text-[#ff3b5c] transition-colors cursor-pointer">
+                  <p className="text-gray-400 text-sm mt-1 hover:text-[#3C88CB] transition-colors cursor-pointer">
                     +90 551 020 34 35
                   </p>
                 </div>

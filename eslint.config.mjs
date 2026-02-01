@@ -18,6 +18,7 @@ const eslintConfig = defineConfig([
       "indent": ["error", 2],
       "react/jsx-indent": ["error", 2],
       "react/jsx-indent-props": ["error", 2],
+      "@next/next/no-img-element": "off",
       "@typescript-eslint/no-unused-vars": [
         "warn",
         {

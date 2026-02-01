@@ -14,7 +14,7 @@ const Welcome: React.FC = () => {
           <div className="w-full h-auto flex flex-col items-start justify-center gap-2 text-left">
             <h2 className="text-4xl font-bold text-neutral-50 select">{NAME}</h2>
             <h2 className="text-4xl font-bold text-neutral-50 select">{SURNAME}</h2>
-            <span className={`text-xl font-semibold text-[#ee2b4b]`}>{PROFESSION}</span>
+            <span className={`text-xl font-semibold text-blue-light`}>{PROFESSION}</span>
             <p
               className="text-lg font-normal text-neutral-50 mt-4 select"
               style={{ whiteSpace: 'pre-wrap', fontSize: 'clamp(1rem, 2.5vw, 1.2rem)' }}
@@ -23,7 +23,7 @@ const Welcome: React.FC = () => {
             </p>
           </div>
           <div className="w-full h-auto flex flex-row flex-wrap mt-2 items-start justify-start gap-4 text-left">
-            <Link href="/about" className='bg-red-primary text-md font-normal text-neutral-50 hover:text-white rounded-sm px-4 py-2 duration-300'>Hakkımda</Link>
+            <Link href="/about" className='bg-blue-primary text-md font-normal text-neutral-50 hover:text-white rounded-sm px-4 py-2 duration-300'>Hakkımda</Link>
             <Link href="/contact" className='bg-gray-secondary text-md font-normal text-neutral-50 hover:text-white rounded-sm px-4 py-2 duration-300'>İletişim</Link>
           </div>
         </div>
