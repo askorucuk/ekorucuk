@@ -1,4 +1,4 @@
-import type { FieldValue } from "firebase/firestore";
+import type { FieldValue, Timestamp } from "firebase/firestore";
 
 export type Post = {
     id?: string;
@@ -8,8 +8,8 @@ export type Post = {
     excerpt: string;
     date: string;
     readTime: string;
-    createdAt: FieldValue;
-    updatedAt: FieldValue;
+    createdAt: Timestamp | FieldValue;
+    updatedAt: Timestamp | FieldValue;
     image: string;
     tags: string[];
 }
@@ -20,6 +20,6 @@ export type Link = {
     category: string;
     title: string;
     url: string;
-    createdAt: FieldValue;
-    updatedAt: FieldValue;
+    createdAt: Timestamp | FieldValue;
+    updatedAt: Timestamp | FieldValue;
 }

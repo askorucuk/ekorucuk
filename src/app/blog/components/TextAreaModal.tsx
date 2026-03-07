@@ -13,6 +13,7 @@ import CreatableSelect from 'react-select/creatable';
 import { MultiValue, SingleValue } from 'react-select';
 import { calculateReadTime } from '@/utils/calculateReadTime';
 import { Check, X, Link as LinkIcon, Plus } from 'lucide-react';
+import { useUIStore } from '@/store/client/ui';
 
 const TextAreaModal: React.FC<{
   isOpen: boolean,
@@ -27,6 +28,7 @@ const TextAreaModal: React.FC<{
   fetchLinks,
   mode
 }) => {
+  const { setDialogData } = useUIStore();
 
   const [title, setTitle] = React.useState('')
   const [content, setContent] = React.useState('')
@@ -211,6 +213,7 @@ const TextAreaModal: React.FC<{
 
   const handleCancel = () => {
     setIsOpen(false)
+    setDialogData(null)
     setTitle('')
     setContent('')
     setCategory('')
@@ -220,7 +223,7 @@ const TextAreaModal: React.FC<{
   }
 
   return (
-    <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="relative z-50">
+    <Dialog open={isOpen} onClose={() => { setIsOpen(false); setDialogData(null); }} className="relative z-50">
       <div className="fixed inset-0 flex w-screen items-center justify-center pt-10 px-4 bg-black/75 create-post-modal">
         {mode === 'write' ? (
           <DialogPanel className="relative w-[100vw] h-[100vh] space-y-2 rounded-t-2xl bg-black/90 py-12 px-10 sm:px-20 xl:px-60 create-post-modal-content flex sm:flex-row flex-col items-start justify-start gap-8 overflow-y-auto">
@@ -425,10 +428,10 @@ const TextAreaModal: React.FC<{
                 <Check size={20} className="sm:w-full sm:h-full w-4 h-4 text-green-500 duration-300" />
               </Button>
               <Button
-                className="bg-transparent duration-300 hover:bg-transparent border-blue-500 border-2 text-slate-500 hover:text-neutral-50 p-2 rounded-full text-sm font-medium transition-colors opacity-50 hover:opacity-100 duration-300"
+                className="bg-transparent duration-300 hover:bg-transparent border-red-500 border-2 text-slate-500 hover:text-neutral-50 p-2 rounded-full text-sm font-medium transition-colors opacity-50 hover:opacity-100 duration-300"
                 onClick={handleCancel}
               >
-                <X size={20} className="sm:w-full sm:h-full w-4 h-4 text-blue-500 duration-300" />
+                <X size={20} className="sm:w-full sm:h-full w-4 h-4 text-red-500 duration-300" />
               </Button>
             </div>
           </DialogPanel>) :
@@ -459,10 +462,10 @@ const TextAreaModal: React.FC<{
                 <Check size={20} className="sm:w-full sm:h-full w-4 h-4 text-green-500 duration-300" />
               </Button>
               <Button
-                className="bg-transparent duration-300 hover:bg-transparent border-blue-500 border-2 text-slate-500 hover:text-neutral-50 p-2 rounded-full text-sm font-medium transition-colors opacity-50 hover:opacity-100 duration-300"
+                className="bg-transparent duration-300 hover:bg-transparent border-red-500 border-2 text-slate-500 hover:text-neutral-50 p-2 rounded-full text-sm font-medium transition-colors opacity-50 hover:opacity-100 duration-300"
                 onClick={handleCancel}
               >
-                <X size={20} className="sm:w-full sm:h-full w-4 h-4 text-blue-500 duration-300" />
+                <X size={20} className="sm:w-full sm:h-full w-4 h-4 text-red-500 duration-300" />
               </Button>
             </div>
           </DialogPanel>

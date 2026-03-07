@@ -7,12 +7,12 @@ import { getUrlParameter } from '@/utils/base';
 import TextAreaModal from './components/TextAreaModal';
 import { Post, Link } from '@/types/posts';
 import DetailsModal from './components/DetailsModal';
-import { collection, getDocs, query, orderBy } from 'firebase/firestore';
+import { collection, getDocs, Timestamp } from 'firebase/firestore';
 import { db } from '@/api/config/firebase';
 import LinkBox from './components/LinkBox';
 
 const Blog = (): JSX.Element => {
-  const isAdmin = getUrlParameter('admin_blog') === '1';
+  const [isAdmin, setIsAdmin] = useState(false);
   const [showCount, setShowCount] = useState(3);
 
   const [writeModalOpen, setWriteModalOpen] = useState(false);
@@ -36,14 +36,11 @@ const Blog = (): JSX.Element => {
     try {
       setLoading(true);
 
-      const _query = query(collection(db, "posts"), orderBy("createdAt", "desc"));
+      const querySnapshot = await getDocs(collection(db, "posts"));
 
-      const querySnapshot = await getDocs(_query);
-
-      const postsData = querySnapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data() as Post
-      }));
+      const postsData = querySnapshot.docs
+        .map((doc) => ({ id: doc.id, ...doc.data() as Post }))
+        .sort((a, b) => ((b.createdAt as Timestamp)?.seconds ?? 0) - ((a.createdAt as Timestamp)?.seconds ?? 0));
 
       setPosts(postsData);
 
@@ -58,14 +55,11 @@ const Blog = (): JSX.Element => {
     try {
       setLoading(true);
 
-      const _query = query(collection(db, "links"), orderBy("createdAt", "desc"));
+      const querySnapshot = await getDocs(collection(db, "links"));
 
-      const querySnapshot = await getDocs(_query);
-
-      const linksData = querySnapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data() as Link
-      }));
+      const linksData = querySnapshot.docs
+        .map((doc) => ({ id: doc.id, ...doc.data() as Link }))
+        .sort((a, b) => ((b.createdAt as Timestamp)?.seconds ?? 0) - ((a.createdAt as Timestamp)?.seconds ?? 0));
 
       setLinks(linksData);
 
@@ -77,6 +71,7 @@ const Blog = (): JSX.Element => {
   };
 
   useEffect(() => {
+    setIsAdmin(getUrlParameter('admin_blog') === '1');
     fetchPosts();
     fetchLinks();
   }, []);
@@ -96,7 +91,7 @@ const Blog = (): JSX.Element => {
                 <button
                   type='button'
                   onClick={() => handleOpenWriteModal('write')}
-                  className="flex items-center text-xs sm:text-base gap-2 bg-[#ff3b5c] hover:bg-[#ff2448] text-white px-4 py-2 rounded-lg font-medium transition-colors"
+                  className="flex items-center text-xs sm:text-base gap-2 bg-blue-primary hover:opacity-90 text-white px-4 py-2 rounded-lg font-medium transition-colors"
                 >
                   <PenSquare size={16} />
                   <span>Oluştur</span>
@@ -106,7 +101,7 @@ const Blog = (): JSX.Element => {
                 <button
                   type='button'
                   onClick={() => handleOpenWriteModal('link')}
-                  className="flex items-center text-xs sm:text-base gap-2 bg-[#ff3b5c] hover:bg-[#ff2448] text-white px-4 py-2 rounded-lg font-medium transition-colors"
+                  className="flex items-center text-xs sm:text-base gap-2 bg-blue-primary hover:opacity-90 text-white px-4 py-2 rounded-lg font-medium transition-colors"
                 >
                   <LinkIcon size={16} />
                   <span>Bağlantı Oluştur</span>
@@ -121,7 +116,7 @@ const Blog = (): JSX.Element => {
               </div>
             ) : (
               posts.slice(0, showCount).map((post) => (
-                <ArticleBox key={post.id} post={post} onOpenDetailsModal={setDetailsModalData} fetchPosts={fetchPosts} />
+                <ArticleBox key={post.id} post={post} onOpenDetailsModal={setDetailsModalData} fetchPosts={fetchPosts} isAdmin={isAdmin} />
               ))
             )}
           </div>

@@ -2,7 +2,6 @@
 import { ArrowRight, BookOpenText, Calendar, Trash } from 'lucide-react'
 import React, { useCallback } from 'react'
 import { Post } from '@/types/posts'
-import { getUrlParameter } from '@/utils/base'
 import { deleteDoc, doc } from 'firebase/firestore'
 import { db } from '@/api/config/firebase'
 import { DialogTypes } from '@/components/Dialogs/DialogTypes'
@@ -11,8 +10,9 @@ import { useUIStore } from '@/store/client/ui'
 const ArticleBox: React.FC<{
   post: Post,
   onOpenDetailsModal: (post: Post) => void,
-  fetchPosts: () => void
-}> = ({ post, onOpenDetailsModal, fetchPosts }) => {
+  fetchPosts: () => void,
+  isAdmin: boolean
+}> = ({ post, onOpenDetailsModal, fetchPosts, isAdmin }) => {
   const { setDialogData } = useUIStore();
   const handleOpenDetailsModal = useCallback(() => {
     onOpenDetailsModal(post);
@@ -28,8 +28,10 @@ const ArticleBox: React.FC<{
       fetchPosts();
     } catch (error) {
       console.error("Post silinirken hata oluştu", error);
+    } finally {
+      setDialogData(null);
     }
-  }, [post.id, fetchPosts]);
+  }, [post.id, fetchPosts, setDialogData]);
 
   const handleDeletePostConfirmation = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -49,10 +51,8 @@ const ArticleBox: React.FC<{
     });
   }, [setDialogData, handleDeletePost]);
 
-  const isAdmin = getUrlParameter('admin_blog') === '1';
-
   return (
-    <div onClick={handleOpenDetailsModal} className="relative group w-full bg-[#1a1a1a] border border-gray-800 rounded-2xl overflow-hidden flex flex-col max-h-[500px] hover:border-[#ff3b5c]/50 transition-all duration-300">
+    <div onClick={handleOpenDetailsModal} className="relative group w-full bg-[#1a1a1a] border border-gray-800 rounded-2xl overflow-hidden flex flex-col max-h-[500px] hover:border-blue-primary/50 transition-all duration-300">
       <div className="relative h-56 shrink-0 overflow-hidden">
         {post.image ? <img
           src={post.image}
@@ -62,7 +62,7 @@ const ArticleBox: React.FC<{
           <BookOpenText size={120} className="text-gray-500" />
         </div>
         }
-        <span className="max-w-[200px] absolute top-4 left-4 bg-[#ff3b5c] text-white text-xs font-bold whitespace-nowrap text-ellipsis overflow-hidden text-left px-3 py-1.5 rounded-full uppercase tracking-wider shadow-lg">
+        <span className="max-w-[200px] absolute top-4 left-4 bg-blue-primary text-white text-xs font-bold whitespace-nowrap text-ellipsis overflow-hidden text-left px-3 py-1.5 rounded-full uppercase tracking-wider shadow-lg">
           {post.category}
         </span>
       </div>
@@ -96,7 +96,7 @@ const ArticleBox: React.FC<{
         </p>
 
         <div className="mt-auto pt-2">
-          <button className="flex items-center gap-2 text-[#ff3b5c] font-medium group-hover:gap-3 transition-all duration-300 text-sm">
+          <button className="flex items-center gap-2 text-blue-primary font-medium group-hover:gap-3 transition-all duration-300 text-sm">
             Read Article
             <ArrowRight size={16} />
           </button>
@@ -105,7 +105,7 @@ const ArticleBox: React.FC<{
           <button
             onClick={handleDeletePostConfirmation}
             type="button"
-            className="absolute bottom-5 right-4 bg-[#ff3b5c] text-white px-3 py-1.5 rounded-full hover:bg-[#ff2448] transition-colors"
+            className="absolute bottom-5 right-4 bg-blue-primary text-white px-3 py-1.5 rounded-full hover:opacity-90 transition-colors"
           >
             <Trash size={16} />
           </button>
