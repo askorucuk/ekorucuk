@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { ArrowRight, BookOpenText, Calendar, Trash } from 'lucide-react'
 import React, { useCallback } from 'react'
 import { Post } from '@/types/posts'

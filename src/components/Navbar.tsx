@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import React from 'react'
 import IconLogo from '../assets/logo.png';
-import IconLogoText from '../assets/logo-name.png';
+
 import { nav } from '../constants/classes';
 import useResizeListener from '../hooks/useResizeListener';
 import FloatingNavbarItems from './floatings/FloatingNavbarItems';
