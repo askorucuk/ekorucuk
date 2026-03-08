@@ -26,7 +26,7 @@ const Dialog: React.FC = () => {
       <div className="fixed inset-0 flex w-screen h-screen items-center justify-center pt-10 px-4 bg-black/75">
         <DialogPanel className="relative w-auto h-auto flex flex-col items-start justify-between gap-4 p-8 rounded-2xl" style={{ backgroundColor: '#FFF' }}>
           <div className="flex items-center gap-2">
-            <div className={clsx("flex items-center justify-center border-2 rounded-lg p-2", status === 'positive' ? 'border-green-500' : 'border-red-500')}>
+            <div className='flex items-center justify-center rounded-lg p-2'>
               {status === 'positive' && <Info className="w-12 h-12 text-green-500 shrink-0" />}
               {status === 'negative' && <Info className="w-12 h-12 text-red-500 shrink-0" />}
             </div>

@@ -1,0 +1,69 @@
+import { JSX } from 'react'
+import { GraduationCap, Briefcase } from 'lucide-react'
+
+type TimelineItem = {
+  id: string;
+  year: string;
+  title: string;
+  description: string;
+  type: 'education' | 'work';
+}
+
+const timeline: TimelineItem[] = [
+  {
+    id: "1",
+    year: "",
+    title: "Tıp Fakültesi",
+    description: "Eğitim bilgileri eklenecek",
+    type: "education"
+  },
+  {
+    id: "2",
+    year: "",
+    title: "Genel Cerrahi Uzmanlık",
+    description: "Uzmanlık eğitimi bilgileri eklenecek",
+    type: "education"
+  },
+  {
+    id: "3",
+    year: "",
+    title: "Klinik Deneyim",
+    description: "Çalışma bilgileri eklenecek",
+    type: "work"
+  },
+]
+
+const EducationWork = (): JSX.Element => {
+  return (
+    <section id="education-work-section" className="w-full bg-black text-gray-300 py-12">
+      <div className="flex items-center gap-3 mb-6">
+        <div className="w-10 h-10 bg-blue-primary/10 rounded-xl flex items-center justify-center text-blue-primary">
+          <GraduationCap size={22} />
+        </div>
+        <h2 className="text-2xl md:text-3xl font-bold text-white">Eğitim ve Çalışma</h2>
+      </div>
+      <p className="text-gray-500 text-sm mb-8">Eğitim aldığım ve çalıştığım yerler, tarih sırasıyla</p>
+      <div className="relative pl-2">
+        {timeline.map((item, index) => (
+          <div key={item.id} className="flex gap-6 mb-8 relative group">
+            <div className="flex flex-col items-center">
+              <div className="w-10 h-10 rounded-full bg-[#1a1a1a] border border-gray-800 flex items-center justify-center text-blue-primary z-10">
+                {item.type === 'education' ? <GraduationCap size={18} /> : <Briefcase size={18} />}
+              </div>
+              {index !== timeline.length - 1 && (
+                <div className="w-[1px] h-full bg-gradient-to-b from-blue-primary/50 to-transparent my-2 absolute top-10 left-5 -translate-x-1/2" />
+              )}
+            </div>
+            <div className="pt-1 bg-[#1a1a1a] border border-gray-800 rounded-2xl p-5 flex-1 group-hover:border-blue-primary/50 transition-all duration-300">
+              <span className="text-xs text-blue-primary font-mono">{item.year}</span>
+              <h4 className="text-lg text-white font-medium mt-1">{item.title}</h4>
+              <p className="text-sm text-gray-400 mt-1">{item.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+export default EducationWork

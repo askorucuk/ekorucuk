@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="w-full h-auto flex flex-col items-center justify-center border-t border-gray-secondary gap-4 mt-auto pb-4">
       <div className="k-logo-wrapper w-auto flex items-center justify-center gap-2 mt-4">
-        <img src={IconLogo.src} alt="Logo" className="w-5 h-5 shrink-0" />
+        <img src={IconLogo.src} alt="Logo" className="w-5 h-4.5 shrink-0" />
       </div>
       <div className="w-full h-auto flex flex-row items-center justify-center text-xs text-gray-500 gap-2">
         <Copyright size={10} />
@@ -24,11 +24,11 @@ const Footer: React.FC = () => {
         </Link>
         <span className="text-gray-500">|</span>
         <Link
-          href="https://www.researchgate.net/profile/Ebubekir-Korucuk"
+          href="https://scholar.google.com/citations?view_op=list_works&hl=tr&authuser=4&hl=tr&user=RjsvXvAAAAAJ&authuser=4"
           target="_blank"
           className="text-gray-500 hover:text-gray-300 cursor-pointer duration-300"
         >
-          ResearchGate
+          Google Scholar
         </Link>
         <span className="text-gray-500">|</span>
         <Link

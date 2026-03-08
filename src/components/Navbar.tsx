@@ -54,6 +54,12 @@ const Navbar: React.FC = () => {
             Hakkımda
           </Link>
           <Link
+            href="/conditions"
+            className={activePath === '/conditions' ? nav.activeLink : nav.link}
+          >
+            Hastalıklar & Tedaviler
+          </Link>
+          <Link
             href="/blog"
             className={activePath === '/blog' ? nav.activeLink : nav.link}
           >

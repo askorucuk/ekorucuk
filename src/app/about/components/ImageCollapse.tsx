@@ -3,7 +3,7 @@ import React, { JSX } from 'react'
 
 const ImageCollapse = (): JSX.Element => {
   const handleScroll = () => {
-    const journeySection = document.getElementById('journey-section');
+    const journeySection = document.getElementById('education-work-section');
     if (journeySection) {
       journeySection.scrollIntoView({ behavior: 'smooth' });
     }
@@ -17,7 +17,7 @@ const ImageCollapse = (): JSX.Element => {
           <button className="bg-blue-primary text-sm font-normal text-neutral-50 hover:text-white rounded-sm px-4 py-2 cursor-pointer duration-300" onClick={handleScroll}>Yolculuğum</button>
           <Link href="/contact" className="bg-blue-alternate text-sm font-normal text-neutral-50 hover:text-white rounded-sm px-4 py-2 cursor-pointer duration-300">Bana Ulaşın</Link>
         </div>
-        <div className="absolute top-0 left-0 w-full h-full bg-base-primary opacity-25 z-1" />
+        <div className="absolute top-0 left-0 w-full h-full bg-base-primary opacity-10 z-1" />
       </aside>
     </section>
   )

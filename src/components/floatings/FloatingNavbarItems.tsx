@@ -67,6 +67,10 @@ const FloatingNavbarItems: React.FC = () => {
       path: "/about",
       label: "Hakkımda"
     },
+    conditions: {
+      path: "/conditions",
+      label: "Hastalıklar & Tedaviler"
+    },
     blog: {
       path: "/blog",
       label: "Blog"
