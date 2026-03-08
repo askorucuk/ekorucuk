@@ -4,6 +4,7 @@ import { MapPin, Mail, Phone, Loader2 } from 'lucide-react';
 import { EMAIL, PHONE } from '@/constants/contactInfo';
 import { useUIStore } from '@/store/client/ui';
 import emailjs from '@emailjs/browser';
+import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } from '@/api/config/emailjs';
 
 const Contact = (): JSX.Element => {
   const [formData, setFormData] = useState({
@@ -47,10 +48,10 @@ const Contact = (): JSX.Element => {
 
     try {
       await emailjs.sendForm(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
         formRef.current,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
+        EMAILJS_PUBLIC_KEY,
       );
       setSendStatus('success');
       setFormData({ fullName: '', email: '', subject: '', message: '' });
