@@ -96,7 +96,7 @@ const ArticleBox: React.FC<{
 
         <div className="mt-auto pt-2">
           <button className="flex items-center gap-2 text-blue-primary font-medium group-hover:gap-3 transition-all duration-300 text-sm">
-            Read Article
+            Oku
             <ArrowRight size={16} />
           </button>
         </div>

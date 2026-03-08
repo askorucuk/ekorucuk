@@ -27,13 +27,16 @@ const Welcome: React.FC = () => {
             <Link href="/contact" className='bg-gray-secondary text-md font-normal text-neutral-50 hover:text-white rounded-sm px-4 py-2 duration-300'>İletişim</Link>
           </div>
         </div>
-        <aside className="k-baseImage-wrapper w-full h-auto flex flex-col items-center justify-center outline-[4px] outline-offset-[5px] outline-gray-300 rounded-md overflow-hidden">
+        <aside
+          className="k-baseImage-wrapper w-full h-auto max-w-[500px] max-h-[500px] flex flex-col items-center justify-center outline-[5px] outline-offset-[5px] outline-gray-300 rounded-md overflow-hidden"
+        >
           <Image
             src={baseImage}
             alt="Op.Dr. Ebubekir Korucuk"
             width={500}
             height={500}
-            className="xl:aspect-3/2 sm:aspect-3/2 aspect-3/2 w-full h-full object-cover"
+            style={{ transform: 'scale(.975)', borderRadius: '4px' }}
+            className="aspect-1 w-full h-full object-cover"
           />
         </aside>
       </div>

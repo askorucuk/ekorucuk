@@ -22,8 +22,7 @@ const FloatingNavbarItems: React.FC = () => {
 
   const { refs, floatingStyles, context } = useFloating({
     open: isOpen,
-    onOpenChange(isOpen, event, reason) {
-      console.log(isOpen, event, reason);
+    onOpenChange(isOpen, _event, _reason) {
       setIsOpen(isOpen);
     },
     strategy: "fixed",
@@ -66,6 +65,10 @@ const FloatingNavbarItems: React.FC = () => {
     about: {
       path: "/about",
       label: "Hakkımda"
+    },
+    conditions: {
+      path: "/conditions",
+      label: "Hastalıklar & Tedaviler"
     },
     blog: {
       path: "/blog",
