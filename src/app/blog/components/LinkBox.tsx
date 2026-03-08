@@ -22,10 +22,12 @@ const LinkBox: React.FC<{ link: Link, fetchLinks: () => void }> = ({ link, fetch
       fetchLinks();
     } catch (error) {
       console.error("Link silinirken hata oluştu", error);
+    } finally {
+      setDialogData(null);
     }
-  }, [link.id, fetchLinks]);
+  }, [link.id, fetchLinks, setDialogData]);
 
-  
+
   const handleDeleteLinkConfirmation = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
