@@ -3,7 +3,6 @@ import { JSX } from 'react';
 import SpecialtyList from './components/SpecialtyList';
 
 const Hastaliklar = (): JSX.Element => {
-  console.log('naber');
   return (
     <div className="min-h-screen bg-black text-white py-16 px-4 md:px-12">
       <div className="max-w-7xl mx-auto">
