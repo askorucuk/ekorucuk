@@ -3,7 +3,7 @@ import React from 'react'
 import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
 import Image from 'next/image'
 import { Post } from '@/types/posts';
-import { BookOpenText, X } from 'lucide-react';
+import { LuBookOpenText, LuX } from 'react-icons/lu';
 
 const DetailsModal: React.FC<{ isOpen: boolean, close: () => void, post: Post | null }> = ({ isOpen, close, post }) => {
   if (!post) return null;
@@ -16,7 +16,7 @@ const DetailsModal: React.FC<{ isOpen: boolean, close: () => void, post: Post | 
             {post.image 
               ? <Image src={post.image} alt={post.title} width={300} height={300} className='object-cover rounded-xl' /> 
               : <div className="flex flex-col items-center justify-center w-auto h-auto p-12 rounded-xl bg-black/90">
-                <BookOpenText size={120} className="text-gray-500" />
+                <LuBookOpenText size={120} className="text-gray-500" />
               </div>}
             <DialogTitle className='text-xl font-bold border-l-0 md:border-l-2 border-gray-400 pl-4'>{post.title}</DialogTitle>
           </div>
@@ -25,7 +25,7 @@ const DetailsModal: React.FC<{ isOpen: boolean, close: () => void, post: Post | 
             <p className='text-gray-500 text-sm mt-4'>{description.slice(1)}</p>
           </div>
           <button onClick={close} type="button" className="absolute top-4 right-4 text-white hover:bg-gray-neutral p-2 rounded-full bg-gray-primary transition-colors duration-300">
-            <X size={20} />
+            <LuX size={20} />
           </button>
         </DialogPanel>
       </div>

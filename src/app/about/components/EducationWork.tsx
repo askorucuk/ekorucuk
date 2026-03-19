@@ -1,5 +1,5 @@
 import { JSX } from 'react'
-import { GraduationCap, Briefcase } from 'lucide-react'
+import { LuGraduationCap, LuBriefcase } from 'react-icons/lu'
 
 type TimelineItem = {
   id: string;
@@ -12,23 +12,30 @@ type TimelineItem = {
 const timeline: TimelineItem[] = [
   {
     id: "1",
-    year: "",
+    year: "2013 - 2019",
     title: "Tıp Fakültesi",
-    description: "Eğitim bilgileri eklenecek",
+    description: "Ege Üniversitesi Tıp Fakültesi",
     type: "education"
   },
   {
     id: "2",
-    year: "",
-    title: "Genel Cerrahi Uzmanlık",
-    description: "Uzmanlık eğitimi bilgileri eklenecek",
-    type: "education"
+    year: "2019",
+    title: "Pratisyen Doktor",
+    description: "Horasan Devlet Hastanesi",
+    type: "work"
   },
   {
     id: "3",
-    year: "",
-    title: "Klinik Deneyim",
-    description: "Çalışma bilgileri eklenecek",
+    year: "2019 - 2025",
+    title: "Genel Cerrahi İhtisası",
+    description: "Ege Üniversitesi Tıp Fakültesi Hastanesi Genel Cerrahi ABD",
+    type: "education"
+  },
+  {
+    id: "4",
+    year: "2026 - Halen",
+    title: "Operatör Doktor",
+    description: "Van Erciş Şehit Rıdvan Çevik Devlet Hastanesi",
     type: "work"
   },
 ]
@@ -38,7 +45,7 @@ const EducationWork = (): JSX.Element => {
     <section id="education-work-section" className="w-full bg-black text-gray-300 py-12">
       <div className="flex items-center gap-3 mb-6">
         <div className="w-10 h-10 bg-blue-primary/10 rounded-xl flex items-center justify-center text-blue-primary">
-          <GraduationCap size={22} />
+          <LuGraduationCap size={22} />
         </div>
         <h2 className="text-2xl md:text-3xl font-bold text-white">Eğitim ve Çalışma</h2>
       </div>
@@ -48,7 +55,7 @@ const EducationWork = (): JSX.Element => {
           <div key={item.id} className="flex gap-6 mb-8 relative group">
             <div className="flex flex-col items-center">
               <div className="w-10 h-10 rounded-full bg-[#1a1a1a] border border-gray-800 flex items-center justify-center text-blue-primary z-10">
-                {item.type === 'education' ? <GraduationCap size={18} /> : <Briefcase size={18} />}
+                {item.type === 'education' ? <LuGraduationCap size={18} /> : <LuBriefcase size={18} />}
               </div>
               {index !== timeline.length - 1 && (
                 <div className="w-[1px] h-full bg-gradient-to-b from-blue-primary/50 to-transparent my-2 absolute top-10 left-5 -translate-x-1/2" />

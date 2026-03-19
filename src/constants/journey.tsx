@@ -1,5 +1,5 @@
 import { JSX } from "react";
-import { GraduationCap, BookA, Hospital, Activity } from "lucide-react";
+import { LuGraduationCap, LuBookA, LuHospital, LuActivity } from "react-icons/lu";
 
 type TimelineData = {
     id: number;
@@ -15,28 +15,28 @@ export const timelineData: TimelineData[] = [
     title: "Fen Lisesi, Erzurum",
     description: '',
     year: "2009-2013",
-    icon: <BookA size={20} />,
+    icon: <LuBookA size={20} />,
   },
   {
     id: 2,
     title: "Ege Üniversitesi Lisans Derecesi, Tıp",
     description: '',
     year: "2013 - 2019",
-    icon: <GraduationCap size={20} />,
+    icon: <LuGraduationCap size={20} />,
   },
   {
     id: 3,
     title: "Ege Üniversitesi Genel Cerrahi Uzmanlığı",
     description: '',
     year: "2019 - Halen",
-    icon: <Hospital size={20} />,
+    icon: <LuHospital size={20} />,
   },
   {
     id: 4,
     title: "Ege Üniversitesi Genel Cerrahi: Op.Dr. Ebubekir Korucuk",
     description: 'Şu andaki Pozisyon',
     year: "2025 - Halen",
-    icon: <Activity   size={20} />,
+    icon: <LuActivity   size={20} />,
   },
   
 ];

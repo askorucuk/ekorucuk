@@ -2,7 +2,7 @@
 import React, { useCallback } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import { ChevronRight, Info, CalendarCheck } from 'lucide-react'
+import { LuChevronRight, LuInfo, LuCalendarCheck } from 'react-icons/lu'
 import { useUIStore } from '@/store/client/ui'
 
 import conditionsImg from '@/assets/img/conditions.jpeg'
@@ -12,7 +12,6 @@ export type Specialty = {
   id: string;
   title: string;
   description: string;
-  icon: React.ReactNode;
   details: string[];
 }
 
@@ -59,10 +58,6 @@ const SpecialtySection: React.FC<SpecialtySectionProps> = ({ specialty, index = 
           <div className={`hidden md:block absolute inset-0 bg-gradient-to-t from-[#1a1a1a]/50 to-transparent`} />
           <div className={`hidden md:block absolute inset-0 ${isReversed ? 'bg-gradient-to-l' : 'bg-gradient-to-r'} from-[#1a1a1a] via-[#1a1a1a]/80 to-transparent`} />
 
-          {/* Floating Icon Badge */}
-          <div className={`absolute top-6 ${isReversed ? 'left-6' : 'right-6'} w-12 h-12 bg-[#1a1a1a] rounded-xl flex items-center justify-center text-blue-primary shadow-xl border border-gray-800 z-10 group-hover:scale-110 transition-transform duration-300`}>
-            {specialty.icon}
-          </div>
         </div>
 
         {/* Content Section */}
@@ -78,7 +73,7 @@ const SpecialtySection: React.FC<SpecialtySectionProps> = ({ specialty, index = 
               <ul className="flex flex-col gap-2.5 mt-2 bg-gray-900/50 p-5 rounded-xl border border-gray-800/50">
                 {specialty.details.map((detail, idx) => (
                   <li key={idx} className="flex items-start gap-3 text-gray-300 text-sm">
-                    <ChevronRight size={16} className="text-blue-primary shrink-0 mt-0.5" />
+                    <LuChevronRight size={16} className="text-blue-primary shrink-0 mt-0.5" />
                     <span className="leading-snug">{detail}</span>
                   </li>
                 ))}
@@ -90,14 +85,14 @@ const SpecialtySection: React.FC<SpecialtySectionProps> = ({ specialty, index = 
                 onClick={handleInfoClick}
                 className="flex items-center gap-2 bg-blue-primary hover:bg-blue-600 text-white text-sm px-6 py-2.5 rounded-lg font-medium transition-all shadow-lg shadow-blue-primary/20 hover:shadow-blue-primary/40 cursor-pointer"
               >
-                <Info size={16} />
+                <LuInfo size={16} />
                 Bilgi Al
               </button>
               <button
                 onClick={handleAppointmentClick}
                 className="flex items-center gap-2 border border-gray-700 hover:border-blue-primary text-gray-300 hover:text-white bg-gray-800/50 hover:bg-blue-primary/10 text-sm px-6 py-2.5 rounded-lg font-medium transition-all cursor-pointer"
               >
-                <CalendarCheck size={16} />
+                <LuCalendarCheck size={16} />
                 Randevu İçin Ulaş
               </button>
             </div>

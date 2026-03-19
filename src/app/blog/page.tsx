@@ -1,6 +1,6 @@
 "use client";
 import { JSX, useCallback, useEffect, useState } from 'react';
-import { LinkIcon, PenSquare } from 'lucide-react';
+import { LuLink, LuSquarePen } from 'react-icons/lu';
 // import { posts } from '@/constants/posts';
 import ArticleBox from './components/ArticleBox';
 import { getUrlParameter } from '@/utils/base';
@@ -93,7 +93,7 @@ const Blog = (): JSX.Element => {
                   onClick={() => handleOpenWriteModal('write')}
                   className="flex items-center text-xs sm:text-base gap-2 bg-blue-primary hover:opacity-90 text-white px-4 py-2 rounded-lg font-medium transition-colors"
                 >
-                  <PenSquare size={16} />
+                  <LuSquarePen size={16} />
                   <span>Oluştur</span>
                 </button>
               )}
@@ -103,7 +103,7 @@ const Blog = (): JSX.Element => {
                   onClick={() => handleOpenWriteModal('link')}
                   className="flex items-center text-xs sm:text-base gap-2 bg-blue-primary hover:opacity-90 text-white px-4 py-2 rounded-lg font-medium transition-colors"
                 >
-                  <LinkIcon size={16} />
+                  <LuLink size={16} />
                   <span>Bağlantı Oluştur</span>
                 </button>
               )}
@@ -115,7 +115,7 @@ const Blog = (): JSX.Element => {
                 <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>
               </div>
             ) : (
-              posts.slice(0, showCount).map((post) => (
+              posts.slice(0, showCount).map((post: Post) => (
                 <ArticleBox key={post.id} post={post} onOpenDetailsModal={setDetailsModalData} fetchPosts={fetchPosts} isAdmin={isAdmin} />
               ))
             )}
@@ -138,7 +138,7 @@ const Blog = (): JSX.Element => {
               <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>
             </div>
           ) : (
-            links.slice(0, showCount).map((link) => (
+            links.slice(0, showCount).map((link: Link) => (
               <LinkBox key={link.id} link={link} fetchLinks={fetchLinks} />
             ))
           )}

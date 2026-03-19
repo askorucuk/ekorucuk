@@ -1,6 +1,6 @@
 "use client";
 import React, { JSX, useEffect, useRef, useState } from 'react';
-import { MapPin, Mail, Phone, Loader2 } from 'lucide-react';
+import { LuMapPin, LuMail, LuPhone, LuLoader } from 'react-icons/lu';
 import { EMAIL, PHONE } from '@/constants/contactInfo';
 import { useUIStore } from '@/store/client/ui';
 import emailjs from '@emailjs/browser';
@@ -136,7 +136,7 @@ const Contact = (): JSX.Element => {
                 className="flex items-center justify-center gap-2 bg-blue-primary hover:opacity-90 text-white font-medium py-3 px-8 rounded-lg transition-colors duration-300 w-full md:w-auto disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
                 disabled={submitButtonDisabled}
               >
-                {sending && <Loader2 size={18} className="animate-spin" />}
+                {sending && <LuLoader size={18} className="animate-spin" />}
                 {sending ? 'Gönderiliyor...' : 'Mesajı Gönder'}
               </button>
               {sendStatus === 'success' && (
@@ -149,21 +149,21 @@ const Contact = (): JSX.Element => {
           </div>
           <div className="lg:col-span-1 flex flex-col gap-8 pt-4">
             <h3 className="text-2xl font-semibold text-white mb-2" style={{ fontSize: 'clamp(1.5rem, 2vw, 2rem)' }}>Diğer Yollarla Bağlanın</h3>
-            <div className="flex items-start gap-4">
+            <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x4013206231ee0cf3:0x976ce00f75dd5ef?sa=X&ved=1t:8290&ictx=111" target='_blank' className="flex items-start gap-4">
               <div className="bg-[#1a1a1a] p-3 rounded-lg text-[#3C88CB]">
-                <MapPin size={24} />
+                <LuMapPin size={24} />
               </div>
               <div>
-                <h4 className="text-white font-medium text-lg" style={{ fontSize: 'clamp(1rem, 1vw, 1.5rem)' }}>Klinik Adresi</h4>
-                <p className="text-gray-400 text-sm mt-1">
-                  Ege Üniversitesi,<br />
-                  İzmir, Türkiye
+                <h4 className="text-white font-medium text-lg" style={{ fontSize: 'clamp(1rem, 1vw, 1.5rem)' }}>Randevu Adres</h4>
+                <p className="text-gray-400 text-sm hover:text-[#3C88CB] mt-1">
+                  Erciş Şehit Rıdvan Çevik Devlet Hastanesi,<br />
+                  Van, Türkiye
                 </p>
               </div>
-            </div>
+            </a>
             <a href={`mailto:${EMAIL}`} className="flex items-start gap-4">
               <div className="bg-[#1a1a1a] p-3 rounded-lg text-[#3C88CB]">
-                <Mail size={24} />
+                <LuMail size={24} />
               </div>
               <div>
                 <h4 className="text-white font-medium text-lg" style={{ fontSize: 'clamp(1rem, 1vw, 1.5rem)' }}>E-Posta</h4>
@@ -175,7 +175,7 @@ const Contact = (): JSX.Element => {
             {false && (
               <a href={`tel:${PHONE}`} className="flex items-start gap-4">
                 <div className="bg-[#1a1a1a] p-3 rounded-lg text-[#3C88CB]">
-                  <Phone size={24} />
+                  <LuPhone size={24} />
                 </div>
                 <div>
                   <h4 className="text-white font-medium text-lg" style={{ fontSize: 'clamp(1rem, 1vw, 1.5rem)' }}>Telefon</h4>

@@ -8,7 +8,7 @@ import {
 } from '@headlessui/react'
 import { useUIStore } from '@/store/client/ui';
 import clsx from 'clsx';
-import { Info } from 'lucide-react';
+import { LuInfo } from 'react-icons/lu';
 
 const Dialog: React.FC = () => {
   const { dialogData } = useUIStore();
@@ -27,8 +27,8 @@ const Dialog: React.FC = () => {
         <DialogPanel className="relative w-auto h-auto flex flex-col items-start justify-between gap-4 p-8 rounded-2xl" style={{ backgroundColor: '#FFF' }}>
           <div className="flex items-center gap-2">
             <div className='flex items-center justify-center rounded-lg p-2'>
-              {status === 'positive' && <Info className="w-12 h-12 text-green-500 shrink-0" />}
-              {status === 'negative' && <Info className="w-12 h-12 text-red-500 shrink-0" />}
+              {status === 'positive' && <LuInfo className="w-12 h-12 text-green-500 shrink-0" />}
+              {status === 'negative' && <LuInfo className="w-12 h-12 text-red-500 shrink-0" />}
             </div>
             <DialogTitle className="text-2xl font-bold">{title}</DialogTitle>
           </div>

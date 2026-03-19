@@ -12,7 +12,7 @@ import { db } from '@/api/config/firebase';
 import CreatableSelect from 'react-select/creatable';
 import { MultiValue, SingleValue } from 'react-select';
 import { calculateReadTime } from '@/utils/calculateReadTime';
-import { Check, X, Link as LinkIcon, Plus } from 'lucide-react';
+import { LuCheck, LuX, LuLink as LuLinkIcon, LuPlus } from 'react-icons/lu';
 import { useUIStore } from '@/store/client/ui';
 
 const TextAreaModal: React.FC<{
@@ -392,13 +392,13 @@ const TextAreaModal: React.FC<{
                 <p className="text-sm text-gray-500">Bağlantılar</p>
                 {links.map((link, index) => (
                   <div key={index} className="flex flex-row items-center justify-start w-full gap-2">
-                    <LinkIcon size={20} color="white" className="shrink-0" />
+                    <LuLinkIcon size={20} color="white" className="shrink-0" />
                     <p className="text-sm text-neutral-50 mr-auto truncate">{link}</p>
                     <button
                       className="shrink-0 bg-transparent text-slate-500 hover:text-neutral-50 p-1 ml-autorounded-sm text-sm font-medium transition-colors"
                       onClick={() => handleRemoveLink(index)}
                     >
-                      <X size={16} />
+                      <LuX size={16} />
                     </button>
                   </div>
                 ))}
@@ -415,7 +415,7 @@ const TextAreaModal: React.FC<{
                     className="shrink-0 bg-transparent hover:bg-transparent border-2 border-slate-500 hover:border-neutral-50 text-slate-500 hover:text-neutral-50 p-1 rounded-sm text-sm font-medium transition-colors"
                     onClick={handleAddLink}
                   >
-                    <Plus size={16} />
+                    <LuPlus size={16} />
                   </button>
                 </div>
               </div>
@@ -425,13 +425,13 @@ const TextAreaModal: React.FC<{
                 className="bg-transparent duration-300 hover:bg-transparent border-green-500 border-2 text-slate-500 hover:text-neutral-50 p-2 rounded-full text-sm font-medium transition-colors opacity-50 hover:opacity-100 duration-300"
                 onClick={handleSubmit}
               >
-                <Check size={20} className="sm:w-full sm:h-full w-4 h-4 text-green-500 duration-300" />
+                <LuCheck size={20} className="sm:w-full sm:h-full w-4 h-4 text-green-500 duration-300" />
               </Button>
               <Button
                 className="bg-transparent duration-300 hover:bg-transparent border-red-500 border-2 text-slate-500 hover:text-neutral-50 p-2 rounded-full text-sm font-medium transition-colors opacity-50 hover:opacity-100 duration-300"
                 onClick={handleCancel}
               >
-                <X size={20} className="sm:w-full sm:h-full w-4 h-4 text-red-500 duration-300" />
+                <LuX size={20} className="sm:w-full sm:h-full w-4 h-4 text-red-500 duration-300" />
               </Button>
             </div>
           </DialogPanel>) :
@@ -459,13 +459,13 @@ const TextAreaModal: React.FC<{
                 className="bg-transparent duration-300 hover:bg-transparent border-green-500 border-2 text-slate-500 hover:text-neutral-50 p-2 rounded-full text-sm font-medium transition-colors opacity-50 hover:opacity-100 duration-300"
                 onClick={handleSubmit}
               >
-                <Check size={20} className="sm:w-full sm:h-full w-4 h-4 text-green-500 duration-300" />
+                <LuCheck size={20} className="sm:w-full sm:h-full w-4 h-4 text-green-500 duration-300" />
               </Button>
               <Button
                 className="bg-transparent duration-300 hover:bg-transparent border-red-500 border-2 text-slate-500 hover:text-neutral-50 p-2 rounded-full text-sm font-medium transition-colors opacity-50 hover:opacity-100 duration-300"
                 onClick={handleCancel}
               >
-                <X size={20} className="sm:w-full sm:h-full w-4 h-4 text-red-500 duration-300" />
+                <LuX size={20} className="sm:w-full sm:h-full w-4 h-4 text-red-500 duration-300" />
               </Button>
             </div>
           </DialogPanel>

@@ -1,5 +1,5 @@
 import { JSX, useState } from 'react'
-import { FileText, Heart } from 'lucide-react';
+import { LuFileText, LuHeart } from 'react-icons/lu';
 import { timelineData } from '@/constants/journey';
 import clsx from 'clsx';
 
@@ -61,13 +61,13 @@ const Journey = (): JSX.Element => {
           )}
           {activeTab === TABS[1].id && (
             <div className="text-center py-12 border border-dashed border-gray-800 rounded-lg">
-              <FileText className="w-12 h-12 text-gray-600 mx-auto mb-4" />
+              <LuFileText className="w-12 h-12 text-gray-600 mx-auto mb-4" />
               <p className="text-gray-400">Yayınlanan makaleler burada listelenecek.</p>
             </div>
           )}
           {activeTab === TABS[2].id && (
             <div className="text-center py-12 border border-dashed border-gray-800 rounded-lg">
-              <Heart className="w-12 h-12 text-gray-600 mx-auto mb-4" />
+              <LuHeart className="w-12 h-12 text-gray-600 mx-auto mb-4" />
               <p className="text-gray-400">Müzik ve keşif tutkuları burada yer alacak.</p>
             </div>
           )}

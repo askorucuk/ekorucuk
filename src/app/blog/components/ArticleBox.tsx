@@ -1,4 +1,4 @@
-import { ArrowRight, BookOpenText, Calendar, Trash } from 'lucide-react'
+import { LuArrowRight, LuBookOpenText, LuCalendar, LuTrash } from 'react-icons/lu'
 import React, { useCallback } from 'react'
 import { Post } from '@/types/posts'
 import { deleteDoc, doc } from 'firebase/firestore'
@@ -58,7 +58,7 @@ const ArticleBox: React.FC<{
           alt={post.title}
           className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
         /> : <div className="flex flex-col items-center justify-center w-full h-full bg-black/90">
-          <BookOpenText size={120} className="text-gray-500" />
+          <LuBookOpenText size={120} className="text-gray-500" />
         </div>
         }
         <span className="max-w-[200px] absolute top-4 left-4 bg-blue-primary text-white text-xs font-bold whitespace-nowrap text-ellipsis overflow-hidden text-left px-3 py-1.5 rounded-full uppercase tracking-wider shadow-lg">
@@ -70,7 +70,7 @@ const ArticleBox: React.FC<{
 
         <div className="flex items-center gap-3 text-gray-500 text-sm mb-3">
           <div className="flex items-center gap-1.5">
-            <Calendar size={16} />
+            <LuCalendar size={16} />
             <span className="text-xs">{post.date}</span>
           </div>
           {post.readTime && (
@@ -97,7 +97,7 @@ const ArticleBox: React.FC<{
         <div className="mt-auto pt-2">
           <button className="flex items-center gap-2 text-blue-primary font-medium group-hover:gap-3 transition-all duration-300 text-sm">
             Oku
-            <ArrowRight size={16} />
+            <LuArrowRight size={16} />
           </button>
         </div>
         {isAdmin && (
@@ -106,7 +106,7 @@ const ArticleBox: React.FC<{
             type="button"
             className="absolute bottom-5 right-4 bg-blue-primary text-white px-3 py-1.5 rounded-full hover:opacity-90 transition-colors"
           >
-            <Trash size={16} />
+            <LuTrash size={16} />
           </button>
         )}
       </div>

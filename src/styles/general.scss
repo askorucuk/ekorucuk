@@ -22,11 +22,16 @@
 
 .k-baseImage-wrapper {
     animation: outline-change 2s infinite ease;
+    border-radius: 32px;
 }
 
 .k-about-image-wrapper {
     background: url('../assets/img/aboutme.jpeg');
-        background-position: 50% 30%;
+    @media screen and (max-width: 720px) {
+        background: url('../assets/img/cares.jpeg');
+        background-position: 50% 50%;
+    }
+    background-position: 50% 30%;
     background-size: cover;
     background-repeat: no-repeat;
 }

@@ -1,16 +1,16 @@
 "use client";
 import { JSX, useState } from 'react'
-import { BookOpen, Globe, Users, Presentation, FileText, BookMarked, ClipboardCheck, ChevronRight } from 'lucide-react'
+import { LuBookOpen, LuGlobe, LuUsers, LuPresentation, LuFileText, LuBookMarked, LuClipboardCheck, LuChevronRight } from 'react-icons/lu'
 import clsx from 'clsx'
 
 const TABS = [
-  { id: 'international', label: 'Yurtdışı Tecrübesi', icon: <Globe size={18} /> },
-  { id: 'associations', label: 'Dernek Üyeliklerim', icon: <Users size={18} /> },
-  { id: 'conferences', label: 'Kongre ve Konferanslar', icon: <Presentation size={18} /> },
-  { id: 'publications', label: 'Ulusal ve Uluslararası Yayınlar', icon: <FileText size={18} /> },
-  { id: 'papers', label: 'Ulusal ve Uluslararası Bildiriler', icon: <ClipboardCheck size={18} /> },
-  { id: 'books', label: 'Kitap Bölümleri', icon: <BookMarked size={18} /> },
-  { id: 'reviews', label: 'Dergi Hakemlikleri', icon: <BookOpen size={18} /> },
+  { id: 'international', label: 'Yurtdışı Tecrübesi', icon: <LuGlobe size={18} /> },
+  { id: 'associations', label: 'Dernek Üyeliklerim', icon: <LuUsers size={18} /> },
+  { id: 'conferences', label: 'Kongre ve Konferanslar', icon: <LuPresentation size={18} /> },
+  { id: 'publications', label: 'Ulusal ve Uluslararası Yayınlar', icon: <LuFileText size={18} /> },
+  { id: 'papers', label: 'Ulusal ve Uluslararası Bildiriler', icon: <LuClipboardCheck size={18} /> },
+  { id: 'books', label: 'Kitap Bölümleri', icon: <LuBookMarked size={18} /> },
+  { id: 'reviews', label: 'Dergi Hakemlikleri', icon: <LuBookOpen size={18} /> },
 ]
 
 const placeholderContent: Record<string, { title: string; description: string }> = {
@@ -52,7 +52,7 @@ const AcademicLife = (): JSX.Element => {
     <section className="w-full bg-black text-gray-300 py-12">
       <div className="flex items-center gap-3 mb-8">
         <div className="w-10 h-10 bg-blue-primary/10 rounded-xl flex items-center justify-center text-blue-primary">
-          <BookOpen size={22} />
+          <LuBookOpen size={22} />
         </div>
         <h2 className="text-2xl md:text-3xl font-bold text-white">Akademik Hayat</h2>
       </div>
@@ -75,7 +75,7 @@ const AcademicLife = (): JSX.Element => {
               >
                 {tab.icon}
                 <span className="flex-1">{tab.label}</span>
-                {activeTab === tab.id && <ChevronRight size={16} />}
+                {activeTab === tab.id && <LuChevronRight size={16} />}
               </button>
             ))}
           </div>

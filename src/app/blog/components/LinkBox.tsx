@@ -3,7 +3,7 @@ import { Link } from '@/types/posts'
 import { getUrlParameter } from '@/utils/base'
 import { deleteDoc, doc } from 'firebase/firestore';
 import { db } from '@/api/config/firebase';
-import { Link2Icon, Trash } from 'lucide-react';
+import { LuLink2, LuTrash } from 'react-icons/lu';
 import { useUIStore } from '@/store/client/ui';
 import { DialogTypes } from '@/components/Dialogs/DialogTypes'
 
@@ -60,7 +60,7 @@ const LinkBox: React.FC<{ link: Link, fetchLinks: () => void }> = ({ link, fetch
           style={{ fontSize: 'clamp(.75rem, 2vw, 1rem)' }}
           title={link.title}
         >
-          <Link2Icon size={16} />
+          <LuLink2 size={16} />
           {link.title}
         </h3>
         <p className="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-3 overflow-hidden text-left"
@@ -76,7 +76,7 @@ const LinkBox: React.FC<{ link: Link, fetchLinks: () => void }> = ({ link, fetch
             type="button"
             className="absolute bottom-5 right-4 bg-[#ff3b5c] text-white px-3 py-1.5 rounded-full hover:bg-[#ff2448] transition-colors"
           >
-            <Trash size={16} />
+            <LuTrash size={16} />
           </button>
         )}
       </div>
