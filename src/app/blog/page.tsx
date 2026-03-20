@@ -79,12 +79,12 @@ const Blog = (): JSX.Element => {
 
   return (
     <>
-      <div className="min-h-screen bg-black text-white py-16 px-4 md:px-12">
-        <div className="max-w-7xl mx-auto border-b border-gray-700">
+      <div className="w-full min-h-screen bg-black text-white py-16">
+        <div className="w-full border-b border-gray-700 pb-12">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-3 text-white">İçeriklerim</h2>
-              <p className="text-gray-400 text-lg">Tüm yazılarım ve içeriklerime buradan göz atabilirsiniz</p>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 text-white">İçeriklerim</h2>
+              <p className="text-gray-400 text-sm sm:text-base md:text-lg">Tüm yazılarım ve içeriklerime buradan göz atabilirsiniz</p>
             </div>
             <div className="flex items-center justify-end flex-wrap gap-2">
               {isAdmin && (
@@ -109,7 +109,7 @@ const Blog = (): JSX.Element => {
               )}
             </div>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8">
             {loading ? (
               <div className="flex justify-center items-center">
                 <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>
@@ -120,19 +120,20 @@ const Blog = (): JSX.Element => {
               ))
             )}
           </div>
-          <div className="flex justify-center mb-12">
+          <div className="flex justify-center">
             {showCount < posts.length && (
               <button
                 type='button'
                 onClick={() => setShowCount(showCount + 3)}
-                className="border border-gray-700 hover:border-gray-500 text-gray-300 px-8 py-3 mt-16 rounded-lg transition-colors">
+                className="border border-gray-700 hover:border-gray-500 text-gray-300 px-8 py-3 mt-12 rounded-lg transition-colors">
                 Daha Fazla
               </button>
             )}
           </div>
         </div>
-        <p className="text-white text-xl mt-8 mb-8">Bağlantılarım</p>
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
+
+        <p className="text-white text-lg sm:text-xl font-semibold mt-10 mb-6">Bağlantılarım</p>
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 mb-16">
           {loading ? (
             <div className="flex justify-center items-center">
               <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>

@@ -24,7 +24,7 @@ const AppointmentCTA: React.FC = () => {
               Randevu Almak İster Misiniz?
             </h3>
             <p className="text-gray-400 text-sm sm:text-base max-w-lg">
-              MHRS üzerinden online randevu alabilir veya iletişim formu aracılığıyla bize ulaşabilirsiniz.
+              MHRS üzerinden online randevu alabilir veya iletişim formu aracılığıyla bana ulaşabilirsiniz.
             </p>
             <div className="flex items-center justify-center md:justify-start gap-2 mt-3 text-gray-500 text-xs">
               <LuMapPin size={14} />
