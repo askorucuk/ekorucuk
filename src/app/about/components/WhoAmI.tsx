@@ -3,7 +3,6 @@
 import { WHOAMI_RESUME } from '@/constants/welcome'
 import { JSX, useState } from 'react'
 import { LuUser, LuChevronDown } from 'react-icons/lu'
-import ResumeCard from './ResumeCard'
 
 const WhoAmI = (): JSX.Element => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -45,7 +44,6 @@ const WhoAmI = (): JSX.Element => {
           </button>
         )}
       </div>
-      <ResumeCard />
     </section>
   )
 }

@@ -1,10 +1,48 @@
 "use client";
-import React, { JSX, useEffect, useRef, useState } from 'react';
+import React, { JSX, useCallback, useEffect, useRef, useState } from 'react';
 import { LuMapPin, LuMail, LuPhone, LuLoader, LuCalendar } from 'react-icons/lu';
 import { EMAIL, PHONE } from '@/constants/contactInfo';
 import { useUIStore } from '@/store/client/ui';
 import emailjs from '@emailjs/browser';
 import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } from '@/api/config/emailjs';
+import toast from 'react-hot-toast';
+
+const MAX_SENDS_PER_EMAIL = 2;
+const RATE_LIMIT_KEY = 'contact_email_sends';
+
+type EmailSendRecord = Record<string, { count: number; lastSent: number }>;
+
+const getEmailSends = (): EmailSendRecord => {
+  try {
+    const raw = localStorage.getItem(RATE_LIMIT_KEY);
+    if (!raw) return {};
+    return JSON.parse(raw);
+  } catch {
+    return {};
+  }
+};
+
+const recordEmailSend = (email: string) => {
+  const sends = getEmailSends();
+  const now = Date.now();
+  sends[email] = {
+    count: (sends[email]?.count || 0) + 1,
+    lastSent: now,
+  };
+  localStorage.setItem(RATE_LIMIT_KEY, JSON.stringify(sends));
+};
+
+const isEmailRateLimited = (email: string): boolean => {
+  const sends = getEmailSends();
+  const record = sends[email];
+  if (!record) return false;
+
+  // Reset after 24 hours
+  const ONE_DAY = 24 * 60 * 60 * 1000;
+  if (Date.now() - record.lastSent > ONE_DAY) return false;
+
+  return record.count >= MAX_SENDS_PER_EMAIL;
+};
 
 const Contact = (): JSX.Element => {
   const [formData, setFormData] = useState({
@@ -46,14 +84,21 @@ const Contact = (): JSX.Element => {
 
   const formRef = useRef<HTMLFormElement>(null);
   const [sending, setSending] = useState(false);
-  const [sendStatus, setSendStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!formRef.current) return;
 
+    const email = formData.email.trim().toLowerCase();
+
+    if (isEmailRateLimited(email)) {
+      toast.error('Bu e-posta ile kısa süre içinde birden fazla mesaj gönderdiniz. Lütfen daha sonra tekrar deneyin.', {
+        duration: 5000,
+      });
+      return;
+    }
+
     setSending(true);
-    setSendStatus('idle');
 
     try {
       await emailjs.sendForm(
@@ -62,14 +107,15 @@ const Contact = (): JSX.Element => {
         formRef.current,
         EMAILJS_PUBLIC_KEY,
       );
-      setSendStatus('success');
+      recordEmailSend(email);
       setFormData({ fullName: '', email: '', subject: '', message: '' });
+      toast.success('Mesajınız başarıyla gönderildi!');
     } catch {
-      setSendStatus('error');
+      toast.error('Mesaj gönderilemedi. Lütfen tekrar deneyin.');
     } finally {
       setSending(false);
     }
-  };
+  }, [formData.email]);
 
   const submitButtonDisabled = sending || formData.fullName === '' || formData.email === '' || formData.message === '';
 
@@ -155,12 +201,6 @@ const Contact = (): JSX.Element => {
                 {sending && <LuLoader size={18} className="animate-spin" />}
                 {sending ? 'Gönderiliyor...' : 'Mesajı Gönder'}
               </button>
-              {sendStatus === 'success' && (
-                <p className="text-green-500 text-sm mt-2">Mesajınız başarıyla gönderildi!</p>
-              )}
-              {sendStatus === 'error' && (
-                <p className="text-red-500 text-sm mt-2">Mesaj gönderilemedi. Lütfen tekrar deneyin.</p>
-              )}
             </form>
           </div>
           <div className="lg:col-span-1 flex flex-col gap-8 pt-4">

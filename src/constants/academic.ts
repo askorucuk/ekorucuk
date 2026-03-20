@@ -1,6 +1,8 @@
+export type AcademicItem = string | { title: string; subtitle: string };
+
 export type AcademicSection = {
   title: string;
-  items: string[];
+  items: AcademicItem[];
 }
 
 export const academicData: Record<string, AcademicSection> = {
@@ -15,10 +17,10 @@ export const academicData: Record<string, AcademicSection> = {
   associations: {
     title: "Dernek Üyelikleri",
     items: [
-      "European Hernia Society (EHS) – ID: 3994",
-      "European Association for Endoscopic Surgery (EAES) – ID: 11.810",
-      "Türk Fıtık Derneği – Genç Cerrahlar Kanadı (Takım Lideri)",
-      "Türk Cerrahi Derneği – ID: 4972",
+      "European Hernia Society (EHS)",
+      "European Association for Endoscopic Surgery (EAES)",
+      { title: "Türk Fıtık Derneği", subtitle: "Genç Cerrahlar Kurulu (Kurul Başkanı)" },
+      "Türk Cerrahi Derneği",
     ],
   },
   conferences: {

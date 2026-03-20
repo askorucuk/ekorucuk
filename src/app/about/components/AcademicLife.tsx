@@ -63,7 +63,14 @@ const AcademicLife = (): JSX.Element => {
             {current.items.map((item, idx) => (
               <li key={idx} className="flex items-start gap-2 sm:gap-3 text-gray-400 text-xs sm:text-sm">
                 <LuChevronRight size={14} className="text-blue-primary shrink-0 mt-0.5" />
-                <span className="leading-relaxed">{item}</span>
+                {typeof item === 'string' ? (
+                  <span className="leading-relaxed">{item}</span>
+                ) : (
+                  <div className="flex flex-col">
+                    <span className="leading-relaxed">{item.title}</span>
+                    <span className="text-gray-500 text-[11px] sm:text-xs mt-0.5 pl-2 border-l border-gray-700">{item.subtitle}</span>
+                  </div>
+                )}
               </li>
             ))}
           </ul>

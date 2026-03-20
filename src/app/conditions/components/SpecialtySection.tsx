@@ -7,8 +7,23 @@ import { useUIStore } from '@/store/client/ui'
 
 const MHRS_URL = 'https://mhrs.gov.tr/vatandas/?/Randevu#/'
 
-import conditionsImg from '@/assets/img/conditions.jpeg'
-import caresImg from '@/assets/img/cares.jpeg'
+import fitikImg from '@/assets/img/fıtık.jpeg'
+import proktolojiImg from '@/assets/img/proktoloji.jpeg'
+import endokrinImg from '@/assets/img/endokrin.jpeg'
+import memeImg from '@/assets/img/meme.jpeg'
+import onkolojiImg from '@/assets/img/onkoloji.jpeg'
+import minimalInvazivImg from '@/assets/img/minimal-invaziv.jpeg'
+
+import { StaticImageData } from 'next/image'
+
+const imageMap: Record<string, StaticImageData> = {
+  'fitik-cerrahisi': fitikImg,
+  'proktoloji': proktolojiImg,
+  'endokrin-cerrahisi': endokrinImg,
+  'meme-cerrahisi': memeImg,
+  'onkolojik-cerrahi': onkolojiImg,
+  'minimal-invaziv': minimalInvazivImg,
+}
 
 export type Specialty = {
   id: string;
@@ -26,7 +41,7 @@ const SpecialtySection: React.FC<SpecialtySectionProps> = ({ specialty, index = 
   const router = useRouter();
   const { setContactPrefill } = useUIStore();
   const isReversed = index % 2 !== 0;
-  const imageSrc = index % 2 === 0 ? conditionsImg : caresImg;
+  const imageSrc = imageMap[specialty.id] || minimalInvazivImg;
 
   const handleAppointmentClick = useCallback(() => {
     setContactPrefill({
@@ -45,7 +60,7 @@ const SpecialtySection: React.FC<SpecialtySectionProps> = ({ specialty, index = 
             src={imageSrc}
             alt={specialty.title}
             fill
-            className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100 mix-blend-luminosity hover:mix-blend-normal"
+            className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100"
           />
           {/* Gradients for smooth blending */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-[#1a1a1a]/40 to-transparent md:hidden" />

@@ -16,15 +16,11 @@ const AppointmentCTA: React.FC = () => {
         <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 md:gap-10 p-6 sm:p-8 md:p-10">
           {/* Left: Text */}
           <div className="flex-1 text-center md:text-left">
-            <div className="flex items-center justify-center md:justify-start gap-2 mb-3">
-              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-green-400 text-xs font-medium tracking-wide uppercase">Randevu Açık</span>
-            </div>
-            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">
-              Randevu Almak İster Misiniz?
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
+              Sağlık Sorununuz mu Var?
             </h3>
-            <p className="text-gray-400 text-sm sm:text-base max-w-lg">
-              MHRS üzerinden online randevu alabilir veya iletişim formu aracılığıyla bana ulaşabilirsiniz.
+            <p className="text-gray-400 text-sm sm:text-base max-w-lg leading-relaxed">
+              Sizin için buradayım. MHRS üzerinden online randevu alabilir veya iletişim formu aracılığıyla bana ulaşabilirsiniz.
             </p>
             <div className="flex items-center justify-center md:justify-start gap-2 mt-3 text-gray-500 text-xs">
               <LuMapPin size={14} />
