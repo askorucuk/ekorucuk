@@ -11,7 +11,7 @@ import { usePathname } from 'next/navigation';
 const Navbar: React.FC = () => {
 
   const { width } = useResizeListener();
-  const menuActive = width <= 680;
+  const menuActive = width <= 900;
 
   const activePath = usePathname();
 
@@ -40,7 +40,7 @@ const Navbar: React.FC = () => {
       {menuActive ? (
         <FloatingNavbarItems />
       ) : (
-        <div className="w-auto flex items-center justify-center md:gap-2 gap-0">
+        <div className="w-auto flex items-center justify-center gap-1 lg:gap-2">
           <Link
             href="/"
             className={activePath === '/' ? nav.activeLink : nav.link}
@@ -70,6 +70,14 @@ const Navbar: React.FC = () => {
             className={activePath === '/contact' ? nav.activeLink : nav.link}
           >
             İletişim
+          </Link>
+          <Link
+            href="https://mhrs.gov.tr/vatandas/?/Randevu#/"
+            target='_blank'
+            rel="noopener noreferrer"
+            className="relative whitespace-nowrap text-xs lg:text-sm font-semibold text-white bg-blue-primary hover:bg-blue-600 px-3 lg:px-4 py-1.5 rounded-lg transition-all duration-300 shadow-md shadow-blue-primary/20 hover:shadow-blue-primary/40 animate-pulse-ring ml-1"
+          >
+            Randevu Al
           </Link>
         </div>
       )}

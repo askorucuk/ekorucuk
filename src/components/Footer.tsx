@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
       </div>
       <div className="w-full h-auto flex flex-row items-center justify-center text-xs md:text-sm md:gap-4 gap-2 duration-300">
         <Link
-          href="https://www.instagram.com/ekorucuk/"
+          href="https://www.instagram.com/opdrekorucuk/"
           target="_blank"
           className="text-gray-500 hover:text-gray-300 cursor-pointer duration-300"
         >

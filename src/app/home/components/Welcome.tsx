@@ -1,4 +1,4 @@
-"";
+"use client";
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -9,7 +9,7 @@ const Welcome: React.FC = () => {
 
   return (
     <section className="w-full h-auto flex flex-row flex-wrap items-center justify-center">
-      <div className="w-full h-auto flex md:flex-row flex-col-reverse items-start justify-between gap-8">
+      <div className="w-full h-auto flex md:flex-row flex-col-reverse items-center justify-between gap-8">
         <div className="w-full h-auto flex flex-col items-start justify-center gap-4">
           <div className="w-full h-auto flex flex-col items-start justify-center gap-2 text-left">
             <h2 className="text-4xl font-bold text-neutral-50 select">{NAME} {SURNAME}</h2>
@@ -24,6 +24,7 @@ const Welcome: React.FC = () => {
             <Link href="/about" className='bg-blue-primary text-md font-normal text-neutral-50 hover:text-white rounded-sm px-4 py-2 duration-300'>Hakkımda</Link>
             <Link href="/contact" className='bg-gray-secondary text-md font-normal text-neutral-50 hover:text-white rounded-sm px-4 py-2 duration-300'>İletişim</Link>
           </div>
+
         </div>
         <aside
           className="k-baseImage-wrapper w-full h-auto max-w-[500px] max-h-[500px] flex flex-col items-center justify-center outline-[5px] outline-offset-[5px] outline-gray-300 overflow-hidden"
@@ -38,6 +39,7 @@ const Welcome: React.FC = () => {
           />
         </aside>
       </div>
+
     </section>
   )
 }

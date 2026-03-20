@@ -1,6 +1,6 @@
 "use client";
 import React, { JSX, useEffect, useRef, useState } from 'react';
-import { LuMapPin, LuMail, LuPhone, LuLoader } from 'react-icons/lu';
+import { LuMapPin, LuMail, LuPhone, LuLoader, LuCalendar } from 'react-icons/lu';
 import { EMAIL, PHONE } from '@/constants/contactInfo';
 import { useUIStore } from '@/store/client/ui';
 import emailjs from '@emailjs/browser';
@@ -15,6 +15,8 @@ const Contact = (): JSX.Element => {
   });
 
   const { contactPrefill, setContactPrefill } = useUIStore();
+  const formContainerRef = useRef<HTMLDivElement>(null);
+  const [isHighlighted, setIsHighlighted] = useState(false);
 
   useEffect(() => {
     if (contactPrefill) {
@@ -24,6 +26,13 @@ const Contact = (): JSX.Element => {
         message: contactPrefill.message,
       }));
       setContactPrefill(null);
+
+      // Scroll to form and highlight
+      setTimeout(() => {
+        formContainerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setIsHighlighted(true);
+        setTimeout(() => setIsHighlighted(false), 2500);
+      }, 300);
     }
   }, [contactPrefill, setContactPrefill]);
 
@@ -75,7 +84,14 @@ const Contact = (): JSX.Element => {
           </p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          <div className="lg:col-span-2 border border-gray-secondary rounded-2xl p-6 md:p-8 bg-black/50">
+          <div
+            ref={formContainerRef}
+            className={`lg:col-span-2 border rounded-2xl p-6 md:p-8 bg-black/50 transition-all duration-700 ${
+              isHighlighted
+                ? 'border-blue-primary shadow-lg shadow-blue-primary/20 ring-2 ring-blue-primary/30'
+                : 'border-gray-secondary'
+            }`}
+          >
             <h3 className="text-2xl font-semibold mb-8 text-white" style={{ fontSize: 'clamp(1.5rem, 2vw, 2rem)' }}>Mesaj Gönder</h3>
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -148,7 +164,7 @@ const Contact = (): JSX.Element => {
             </form>
           </div>
           <div className="lg:col-span-1 flex flex-col gap-8 pt-4">
-            <h3 className="text-2xl font-semibold text-white mb-2" style={{ fontSize: 'clamp(1.5rem, 2vw, 2rem)' }}>Diğer Yollarla Bağlanın</h3>
+            <h3 className="text-2xl font-semibold text-white mb-2" style={{ fontSize: 'clamp(1.5rem, 2vw, 2rem)' }}>Randevu İletişim Bilgileri</h3>
             <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x4013206231ee0cf3:0x976ce00f75dd5ef?sa=X&ved=1t:8290&ictx=111" target='_blank' className="flex items-start gap-4">
               <div className="bg-[#1a1a1a] p-3 rounded-lg text-[#3C88CB]">
                 <LuMapPin size={24} />
@@ -158,6 +174,17 @@ const Contact = (): JSX.Element => {
                 <p className="text-gray-400 text-sm hover:text-[#3C88CB] mt-1">
                   Erciş Şehit Rıdvan Çevik Devlet Hastanesi,<br />
                   Van, Türkiye
+                </p>
+              </div>
+            </a>
+            <a href='https://mhrs.gov.tr/vatandas/?/Randevu#/' target='_blank' className="flex items-start gap-4">
+              <div className="bg-[#1a1a1a] p-3 rounded-lg text-[#3C88CB]">
+                <LuCalendar size={24} />
+              </div>
+              <div>
+                <h4 className="text-white font-medium text-lg" style={{ fontSize: 'clamp(1rem, 1vw, 1.5rem)' }}>Randevu Al</h4>
+                <p className="text-gray-400 text-sm mt-1 hover:text-[#3C88CB] transition-colors cursor-pointer">
+                  MHRS Üzerinden Randevu Al
                 </p>
               </div>
             </a>

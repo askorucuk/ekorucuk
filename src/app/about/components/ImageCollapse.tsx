@@ -11,11 +11,11 @@ const ImageCollapse = (): JSX.Element => {
 
   return (
     <section className="w-full h-auto flex flex-col items-center justify-center">
-      <aside className="k-about-image-wrapper relative w-full h-full min-h-[50vh] flex flex-col items-start justify-end rounded-md overflow-hidden gap-8 p-8">
-        <h2 className="text-[4rem] font-bold text-neutral-50 select z-2" style={{ fontSize: 'clamp(2rem, 8vw, 4rem)' }}>Op.Dr. Ebubekir Korucuk</h2>
+      <aside className="k-about-image-wrapper relative w-full h-full min-h-[40vh] sm:min-h-[50vh] flex flex-col items-start justify-end rounded-md overflow-hidden gap-4 sm:gap-8 p-4 sm:p-6 md:p-8">
+        <h2 className="text-[4rem] font-bold text-neutral-50 select z-2" style={{ fontSize: 'clamp(1.5rem, 6vw, 4rem)' }}>Op.Dr. Ebubekir Korucuk</h2>
         <div className="flex flex-row items-center justify-center gap-2 z-2">
-          <button className="bg-blue-primary text-sm font-normal text-neutral-50 hover:text-white rounded-sm px-4 py-2 cursor-pointer duration-300" onClick={handleScroll}>Yolculuğum</button>
-          <Link href="/contact" className="bg-blue-alternate text-sm font-normal text-neutral-50 hover:text-white rounded-sm px-4 py-2 cursor-pointer duration-300">Bana Ulaşın</Link>
+          <button className="bg-blue-primary text-xs sm:text-sm font-normal text-neutral-50 hover:text-white rounded-sm px-3 sm:px-4 py-2 cursor-pointer duration-300" onClick={handleScroll}>Yolculuğum</button>
+          <Link href="/contact" className="bg-blue-alternate text-xs sm:text-sm font-normal text-neutral-50 hover:text-white rounded-sm px-3 sm:px-4 py-2 cursor-pointer duration-300">Bana Ulaşın</Link>
         </div>
         <div className="absolute top-0 left-0 w-full h-full bg-base-primary opacity-10 z-1" />
       </aside>

@@ -9,9 +9,9 @@ const Journey = (): JSX.Element => {
   const [activeTab, setActiveTab] = useState(TABS[0].id);
 
   return (
-    <section className="w-full h-full bg-black min-h-[500px] text-gray-300 pt-8" id="journey-section">
+    <section className="w-full h-full bg-black min-h-[300px] sm:min-h-[500px] text-gray-300 pt-6 sm:pt-8" id="journey-section">
       <div className="w-full h-auto">
-        <div className="flex space-x-8 border-b border-gray-800 mb-10 overflow-x-auto">
+        <div className="flex space-x-4 sm:space-x-8 border-b border-gray-800 mb-6 sm:mb-10 overflow-x-auto scrollbar-hide">
           {TABS.map((tab) => (
             <button
               key={tab.id}
@@ -34,13 +34,13 @@ const Journey = (): JSX.Element => {
               <h3 className="text-2xl font-semibold text-white mb-8" style={{ fontSize: 'clamp(1rem, 2.5vw, 1.2rem)' }}>Profesyonel Yolculuk</h3>
               <div className="relative pl-2">
                 {timelineData.map((item, index) => (
-                  <div key={item.id} className="flex gap-6 mb-8 relative group">
+                  <div key={item.id} className="flex gap-3 sm:gap-6 mb-6 sm:mb-8 relative group">
                     <div className="flex flex-col items-center">
-                      <div className="w-10 h-10 rounded-full bg-gray-secondary flex items-center justify-center text-[#3C88CB] z-10">
+                      <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-secondary flex items-center justify-center text-[#3C88CB] z-10 shrink-0">
                         {item.icon}
                       </div>
                       {index !== timelineData.length - 1 && (
-                        <div className="w-[1px] h-full bg-gradient-to-b from-[#3C88CB]/50 to-transparent my-2 absolute top-10 left-5 -translate-x-1/2" />
+                        <div className="w-[1px] h-full bg-gradient-to-b from-[#3C88CB]/50 to-transparent my-2 absolute top-8 sm:top-10 left-4 sm:left-5 -translate-x-1/2" />
                       )}
                     </div>
                     <div className="pt-1">
